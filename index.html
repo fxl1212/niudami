@@ -1,0 +1,2474 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>行业风向指引 · 节庆礼品 / 摆件 / 潮玩</title>
+<style>
+  :root {
+    /* 品牌主色 —— OKLCH 感知均匀，饱和度降一档去廉价，保留小红书识别度 */
+    --xhs-red: oklch(62% 0.20 18);          /* 柔化小红书红：品牌感在、不刺眼 */
+    --xhs-red-deep: oklch(55% 0.21 18);
+    --xhs-red-soft: oklch(95% 0.035 20);
+    /* 节庆暖色辅助 —— 香槟金 / 暖陶橙，低饱和高级感 */
+    --warm-gold: oklch(76% 0.115 78);        /* 香槟金（原 #F5A623 高饱和 → 低饱和琥珀）*/
+    --warm-gold-soft: oklch(96% 0.04 82);
+    --warm-orange: oklch(70% 0.135 45);      /* 暖陶橙（原 #FF7A45 扎眼 → 陶土感）*/
+    --warm-orange-soft: oklch(96% 0.035 45);
+    --warm-red: oklch(60% 0.17 30);
+    /* 语义色 —— 收敛饱和，与暖调协调 */
+    --good: oklch(64% 0.115 158);
+    --good-soft: oklch(95% 0.04 158);
+    --bad: oklch(60% 0.16 30);
+    --bad-soft: oklch(95% 0.045 30);
+    --info: oklch(58% 0.13 255);
+    --info-soft: oklch(95% 0.04 255);
+    /* 中性 —— 暖白底，墨色带微暖 */
+    --bg: oklch(98.5% 0.008 60);
+    --bg-grad-1: oklch(97.5% 0.016 55);
+    --bg-grad-2: oklch(98.5% 0.008 60);
+    --card: #FFFFFF;
+    --ink-0: oklch(24% 0.012 40);
+    --ink-1: oklch(38% 0.012 40);
+    --ink-2: oklch(54% 0.010 45);
+    --ink-3: oklch(68% 0.010 50);
+    --line: oklch(93% 0.012 55);
+    --line-strong: oklch(89% 0.016 50);
+    /* 尺度 */
+    --r-lg: 20px;
+    --r-md: 14px;
+    --r-sm: 10px;
+    --shadow-sm: 0 1px 3px oklch(65% 0.08 45 / 0.07), 0 1px 2px rgba(0,0,0,0.03);
+    --shadow-md: 0 4px 16px oklch(65% 0.09 45 / 0.09), 0 2px 6px rgba(0,0,0,0.03);
+    --shadow-lg: 0 12px 36px oklch(62% 0.10 40 / 0.13), 0 4px 12px rgba(0,0,0,0.04);
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --maxw: 860px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: var(--ink-0);
+    background: linear-gradient(180deg, var(--bg-grad-1) 0%, var(--bg-grad-2) 340px, var(--bg) 100%);
+    background-attachment: fixed;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+    padding-bottom: 64px;
+  }
+  ::selection { background: var(--xhs-red-soft); }
+
+  /* ---------- 灭色带：全屏极轻噪点 overlay（暖色底廉价→高级的最大单点提升）---------- */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.045;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+
+  .wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 16px; }
+
+  /* ---------- 顶部品牌条 ---------- */
+  header.topbar {
+    position: relative;
+    background: linear-gradient(135deg, var(--xhs-red) 0%, var(--warm-orange) 100%);
+    color: #fff;
+    padding: 22px 0 26px;
+    overflow: hidden;
+  }
+  header.topbar::after {
+    content: ""; position: absolute; right: -40px; top: -40px; width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(255,255,255,0.18), transparent 70%);
+    pointer-events: none;
+  }
+  .topbar__title { font-size: clamp(1.12rem, 4vw, 1.42rem); font-weight: 800; letter-spacing: 0.01em; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .topbar__title .tag { font-size: 0.6em; font-weight: 700; background: rgba(255,255,255,0.22); padding: 3px 9px; border-radius: 999px; letter-spacing: 0.04em; }
+  .topbar__title .tag-exclusive {
+    font-size: 0.56em; font-weight: 800;
+    background: linear-gradient(135deg, oklch(85% 0.09 85), oklch(78% 0.11 70));
+    color: oklch(32% 0.06 55);
+    border: 1px solid rgba(255,255,255,0.5);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.4);
+    padding: 3px 10px; letter-spacing: 0.02em; white-space: nowrap;
+  }
+  .topbar__sub { margin-top: 6px; font-size: 0.82rem; opacity: 0.92; font-weight: 500; }
+  .topbar__meta { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .topbar__meta .chip {
+    font-size: 0.72rem; font-weight: 600; background: rgba(255,255,255,0.16);
+    border: 1px solid rgba(255,255,255,0.25); padding: 4px 11px; border-radius: 999px;
+    backdrop-filter: blur(4px);
+  }
+  .topbar__meta .chip b { font-weight: 800; }
+
+  /* ---------- Tab 导航 ---------- */
+  nav.tabs {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(255,248,245,0.92);
+    backdrop-filter: blur(12px) saturate(150%);
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 2px 12px rgba(200,120,90,0.05);
+  }
+  .tabs__inner { display: flex; gap: 4px; max-width: var(--maxw); margin: 0 auto; padding: 8px 12px; }
+  .tab-btn {
+    flex: 1; appearance: none; border: none; cursor: pointer;
+    font-family: inherit; font-size: 0.92rem; font-weight: 700; color: var(--ink-2);
+    background: transparent; padding: 11px 8px; border-radius: var(--r-md);
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+    transition: all 0.25s var(--ease); position: relative;
+  }
+  .tab-btn .emoji { font-size: 1.15em; filter: grayscale(0.3); transition: filter 0.25s; }
+  .tab-btn:hover { color: var(--ink-0); background: rgba(255,36,66,0.05); }
+  .tab-btn[aria-selected="true"] {
+    color: #fff; background: linear-gradient(135deg, var(--xhs-red), var(--warm-orange));
+    box-shadow: 0 4px 14px rgba(255,36,66,0.28);
+  }
+  .tab-btn[aria-selected="true"] .emoji { filter: grayscale(0); }
+  .tab-btn:focus-visible { outline: 2px solid var(--xhs-red); outline-offset: 2px; }
+
+  /* ---------- 面板 ---------- */
+  .tab-panel { display: none; animation: fadeIn 0.4s var(--ease); }
+  .tab-panel.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+  /* ---------- 焦点选择器 ---------- */
+  .focus-bar { margin-top: 20px; }
+  .focus-bar__label { display: flex; align-items: center; gap: 7px; font-size: 0.8rem; font-weight: 700; color: var(--ink-1); margin-bottom: 9px; }
+  .focus-bar__label .axis-name { color: var(--xhs-red); }
+  .focus-bar__label .hint { font-weight: 500; color: var(--ink-3); font-size: 0.92em; }
+  .focus-scroll {
+    display: flex; gap: 9px; overflow-x: auto; padding: 4px 2px 10px; margin: 0 -2px;
+    scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch;
+  }
+  .focus-scroll::-webkit-scrollbar { height: 4px; }
+  .focus-scroll::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 999px; }
+  .focus-chip {
+    flex-shrink: 0; scroll-snap-align: start; cursor: pointer;
+    background: var(--card); border: 1.5px solid var(--line-strong); border-radius: var(--r-md);
+    padding: 9px 14px; min-width: 116px; transition: all 0.22s var(--ease); text-align: left; position: relative;
+    font-family: inherit;
+  }
+  .focus-chip:hover { border-color: var(--warm-orange); transform: translateY(-1px); box-shadow: var(--shadow-sm); }
+  .focus-chip[aria-selected="true"] {
+    border-color: var(--xhs-red);
+    background: linear-gradient(135deg, #fff, var(--xhs-red-soft));
+    box-shadow: 0 4px 14px rgba(255,36,66,0.16);
+  }
+  .focus-chip:focus-visible { outline: 2px solid var(--xhs-red); outline-offset: 2px; }
+  .focus-chip .fc-when {
+    font-size: 0.66rem; font-weight: 800; color: #fff; background: var(--warm-orange);
+    padding: 2px 7px; border-radius: 5px; display: inline-block; margin-bottom: 5px;
+  }
+  .focus-chip.soon .fc-when { background: var(--xhs-red); }
+  .focus-chip .fc-name { font-weight: 800; font-size: 0.92rem; color: var(--ink-0); display: block; }
+  .focus-chip .fc-stage { font-size: 0.7rem; font-weight: 700; margin-top: 4px; display: inline-flex; align-items: center; gap: 3px; }
+  .method-note { font-size: 0.76rem; color: var(--ink-2); background: var(--warm-cream, #FFF6F0); border: 1px dashed var(--warm-orange, #F5A623); border-radius: 8px; padding: 7px 11px; margin-bottom: 12px; line-height: 1.5; }
+  .trend-legend { font-size: 0.72rem; color: var(--ink-3); background: var(--bg-soft, #FAF7F5); border-radius: 8px; padding: 6px 11px; margin-bottom: 10px; }
+  .trend-legend .mom { font-weight: 700; margin: 0 2px; }
+  /* 日历预告位 */
+  .preview-card { background: linear-gradient(135deg,#FFF9F4,#FFF3EC); border: 1px solid #FBD9C3; border-radius: 16px; padding: 22px 20px; }
+  .pv-countdown { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+  .pv-badge { font-size: 0.78rem; font-weight: 800; color: #fff; background: var(--warm-orange, #F5A623); border-radius: 20px; padding: 5px 13px; }
+  .pv-days { font-size: 1.02rem; font-weight: 700; color: var(--ink-1); }
+  .pv-days b { color: var(--xhs-red); font-size: 1.35rem; margin: 0 2px; }
+  .pv-weeks { font-size: 0.8rem; font-weight: 500; color: var(--ink-3); margin-left: 6px; }
+  .pv-reason { font-size: 0.86rem; color: var(--ink-2); line-height: 1.65; background: #fff; border-radius: 10px; padding: 12px 14px; margin-bottom: 16px; }
+  .pv-section { margin-bottom: 16px; }
+  .pv-title { font-size: 0.95rem; font-weight: 800; color: var(--ink-0); margin-bottom: 8px; }
+  .pv-warn { font-size: 0.76rem; color: #B8860B; background: #FFFBEB; border: 1px dashed #F5C842; border-radius: 8px; padding: 6px 11px; margin-bottom: 11px; line-height: 1.5; }
+  .pv-staples { display: flex; flex-direction: column; gap: 8px; }
+  .pv-staple { display: flex; align-items: baseline; gap: 10px; background: #fff; border-radius: 10px; padding: 11px 14px; border-left: 3px solid var(--warm-orange, #F5A623); flex-wrap: wrap; }
+  .pv-staple-name { font-weight: 800; color: var(--ink-0); font-size: 0.92rem; }
+  .pv-staple-why { font-size: 0.82rem; color: var(--ink-2); }
+  .pv-empty { font-size: 0.85rem; color: var(--ink-3); }
+  .pv-activate { font-size: 0.84rem; color: var(--ink-1); background: #FFF0E8; border-radius: 10px; padding: 12px 14px; line-height: 1.6; }
+  .fc-stage.rising { color: var(--good); } .fc-stage.peak { color: var(--xhs-red); }
+  .fc-stage.base { color: var(--info); } .fc-stage.fading { color: var(--ink-3); }
+  .fc-stage.sprint { color: var(--xhs-red); } .fc-stage.warmup { color: var(--warm-orange); } .fc-stage.layout { color: var(--info); }
+  .focus-chip .fc-heat { position: absolute; top: 8px; right: 10px; font-size: 0.62rem; }
+
+  /* 当前焦点标题条 */
+  .focus-now {
+    display: flex; align-items: center; gap: 10px; margin-top: 6px; padding: 12px 16px;
+    background: linear-gradient(135deg, var(--xhs-red), var(--warm-orange)); color: #fff;
+    border-radius: var(--r-md); box-shadow: var(--shadow-md);
+  }
+  .focus-now .fn-icon { font-size: 1.35rem; }
+  .focus-now .fn-name { font-weight: 800; font-size: 1.05rem; }
+  .focus-now .fn-tag { font-size: 0.72rem; font-weight: 700; background: rgba(255,255,255,0.22); padding: 3px 10px; border-radius: 999px; }
+  .focus-now .fn-lifecycle { margin-left: auto; font-size: 0.74rem; font-weight: 700; background: rgba(255,255,255,0.9); color: var(--xhs-red-deep); padding: 4px 11px; border-radius: 999px; }
+
+  .focus-content { animation: fadeIn 0.35s var(--ease); }
+
+  /* ---------- 分段 ---------- */
+  section.seg { margin-top: 36px; }
+
+  /* ---- 渐进披露：可折叠段 ---- */
+  .seg-fold {
+    margin-top: 18px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    transition: box-shadow 0.35s var(--ease), border-color 0.35s var(--ease);
+  }
+  .seg-fold[open] { box-shadow: var(--shadow-md); }
+  .seg-fold > .fold-head {
+    list-style: none; cursor: pointer;
+    display: flex; align-items: center; gap: 12px;
+    padding: 16px 18px;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    transition: background 0.2s var(--ease);
+  }
+  .seg-fold > .fold-head::-webkit-details-marker { display: none; }
+  .seg-fold > .fold-head:hover { background: var(--xhs-red-soft); }
+  .seg-fold > .fold-head:active { background: var(--warm-orange-soft); }
+  .seg-fold > .fold-head:focus-visible { outline: 2px solid var(--xhs-red); outline-offset: -2px; }
+  .fold-num {
+    flex-shrink: 0; width: 30px; height: 30px; border-radius: 9px;
+    background: linear-gradient(135deg, var(--xhs-red), var(--warm-orange));
+    color: #fff; font-weight: 800; font-size: 0.95rem;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .fold-title { font-size: 1.06rem; font-weight: 800; letter-spacing: 0.01em; color: var(--ink-0); }
+  .fold-sub { font-size: 0.76rem; color: var(--ink-2); flex: 1; margin-left: 2px; }
+  .fold-caret {
+    flex-shrink: 0; color: var(--ink-2); font-size: 0.9rem;
+    transition: transform 0.35s var(--ease);
+  }
+  .seg-fold[open] > .fold-head .fold-caret { transform: rotate(180deg); }
+  .fold-body { padding: 0 18px 18px; }
+  /* 折叠内的 section 头部隐藏（summary 已表达标题），去掉外边距 */
+  .fold-body section.seg { margin-top: 4px; }
+  .fold-body section.seg > .seg__head { display: none; }
+  .fold-body section.seg > .seg__desc { margin-left: 0; margin-top: 0; }
+  @media (max-width: 560px) {
+    .fold-sub { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .fold-caret, .seg-fold { transition: none; }
+  }
+  .seg__head { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+  .seg__num {
+    flex-shrink: 0; width: 30px; height: 30px; border-radius: 9px;
+    background: linear-gradient(135deg, var(--xhs-red), var(--warm-orange));
+    color: #fff; font-weight: 800; font-size: 0.95rem;
+    display: grid; place-items: center; box-shadow: 0 3px 8px rgba(255,36,66,0.24);
+  }
+  .seg__title { font-size: 1.18rem; font-weight: 800; letter-spacing: 0.01em; }
+  .seg__desc { margin: 2px 0 14px 40px; font-size: 0.8rem; color: var(--ink-2); }
+
+  /* ---------- 卡片通用 ---------- */
+  .card {
+    background: var(--card); border-radius: var(--r-lg); padding: 22px;
+    box-shadow: var(--shadow-md); border: 1px solid var(--line);
+    transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease), border-color 0.3s var(--ease);
+  }
+  @media (hover: hover) {
+    .card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); border-color: var(--line-strong); }
+  }
+  /* 交互回馈：可点元素零延迟 + 按压物理 */
+  .focus-chip, .tab-btn, .subtab-btn, .tmpl-head, .ref-link {
+    touch-action: manipulation;
+    transition: transform 0.32s var(--ease), box-shadow 0.32s var(--ease),
+                border-color 0.28s var(--ease), background 0.28s var(--ease), color 0.28s var(--ease);
+  }
+  .focus-chip:active, .tab-btn:active, .subtab-btn:active, .tmpl-head:active {
+    transform: scale(0.97) translateY(0);
+    box-shadow: inset 0 2px 6px oklch(60% 0.08 40 / 0.12);
+    transition-duration: 0.06s;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .card, .focus-chip, .tab-btn, .subtab-btn, .tmpl-head, .ref-link { transition: none !important; }
+    .card:hover { transform: none; }
+  }
+  .card + .card { margin-top: 16px; }
+  .grid { display: grid; gap: 12px; }
+  @media (min-width: 640px) { .grid-2 { grid-template-columns: 1fr 1fr; } }
+
+  /* 开篇大盘结论卡 */
+  .summary-card {
+    background: linear-gradient(135deg, #FFFFFF 0%, var(--warm-gold-soft) 140%);
+    border: 1.5px solid var(--line-strong); border-radius: var(--r-lg);
+    padding: 20px; box-shadow: var(--shadow-lg); position: relative; overflow: hidden;
+  }
+  .summary-card::before {
+    content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 5px;
+    background: linear-gradient(180deg, var(--xhs-red), var(--warm-gold));
+  }
+  .summary-card .stage-badge {
+    display: inline-block; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.04em;
+    color: var(--xhs-red-deep); background: var(--xhs-red-soft);
+    padding: 4px 12px; border-radius: 999px; margin-bottom: 10px;
+  }
+  .summary-card .headline { font-size: clamp(0.98rem, 3vw, 1.18rem); font-weight: 700; line-height: 1.5; color: var(--ink-1); }
+  .summary-card .headline .hl { color: var(--xhs-red); font-weight: 800; }
+  /* ★ 核心行动主角卡：视觉绝对主角——最大、最亮、最先入场 */
+  .summary-card .action-line {
+    margin-top: 16px;
+    position: relative;
+    display: flex; flex-direction: column; gap: 6px;
+    padding: 16px 18px 16px 20px;
+    border-radius: var(--r-md);
+    background:
+      radial-gradient(120% 140% at 0% 0%, oklch(96% 0.05 55 / 0.9), transparent 60%),
+      linear-gradient(135deg, var(--warm-gold-soft), var(--warm-orange-soft));
+    border: 1px solid oklch(85% 0.06 55);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+  }
+  .summary-card .action-line::before {
+    content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+    background: linear-gradient(180deg, var(--warm-orange), var(--xhs-red));
+  }
+  .summary-card .action-line .lead {
+    font-size: 0.72rem; font-weight: 800; letter-spacing: 0.06em;
+    color: var(--warm-red); text-transform: none;
+    display: inline-flex; align-items: center; gap: 5px;
+  }
+  .summary-card .action-line .act-body {
+    font-size: clamp(1.02rem, 3.2vw, 1.28rem); font-weight: 800; line-height: 1.5;
+    color: var(--ink-0);
+    /* 高光入场：由模糊到锐利（切焦点时触发，见 JS）*/
+    animation: actionReveal 0.7s var(--ease) both;
+  }
+  .summary-card .action-line .act-body b { color: var(--warm-red); }
+  @keyframes actionReveal {
+    from { filter: blur(12px); opacity: 0; letter-spacing: 0.08em; transform: translateY(6px); }
+    to   { filter: blur(0);    opacity: 1; letter-spacing: 0;       transform: translateY(0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .summary-card .action-line .act-body { animation: none; }
+  }
+  .signals { margin-top: 16px; display: grid; gap: 10px; grid-template-columns: repeat(3, 1fr); }
+  /* 信任背书信号：切焦点时分层渐显入场（锦上添花，默认状态本身完整可见）*/
+  .signal { animation: sigRise 0.55s var(--ease) both; }
+  .signal:nth-child(1) { animation-delay: 0.05s; }
+  .signal:nth-child(2) { animation-delay: 0.13s; }
+  .signal:nth-child(3) { animation-delay: 0.21s; }
+  @keyframes sigRise {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .signal { animation: none; }
+  }
+  @media (max-width: 520px) { .signals { grid-template-columns: 1fr; } }
+  .signal {
+    background: rgba(255,255,255,0.7); border: 1px solid var(--line); border-radius: var(--r-md);
+    padding: 12px; text-align: left;
+  }
+  .signal .sig-label { font-size: 0.72rem; color: var(--ink-2); font-weight: 600; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .sig-anchor {
+    font-size: 0.62rem; font-weight: 800; line-height: 1;
+    padding: 3px 7px; border-radius: 999px; letter-spacing: 0.02em;
+  }
+  .sig-anchor.up { color: #fff; background: linear-gradient(135deg, var(--xhs-red), var(--warm-orange)); }
+  .sig-anchor.flat { color: var(--ink-2); background: var(--line); }
+  .sig-anchor.down { color: var(--info); background: var(--info-soft); }
+  .signal .sig-value { font-size: 1rem; font-weight: 800; margin-top: 3px; color: var(--ink-0); }
+  .signal .sig-trend { font-size: 0.74rem; font-weight: 700; margin-top: 2px; }
+  .trend-up { color: var(--good); }
+  .trend-down { color: var(--bad); }
+  .trend-flat { color: var(--ink-3); }
+
+  /* 热度火焰 */
+  .heat { letter-spacing: -2px; font-size: 0.9em; }
+  .heat-dim { opacity: 0.25; filter: grayscale(1); }
+
+  /* 趋势：前瞻 vs 回顾 双栏 */
+  .lookahead-head, .lookback-head { display: flex; align-items: center; gap: 7px; font-weight: 800; font-size: 0.95rem; margin-bottom: 10px; }
+  .lookahead-head .ico { color: var(--warm-orange); } .lookback-head .ico { color: var(--info); }
+  .node-list { display: grid; gap: 9px; }
+  .node-item {
+    display: flex; align-items: center; gap: 10px; padding: 10px 12px;
+    background: var(--bg); border-radius: var(--r-md); border: 1px solid var(--line);
+  }
+  .node-item .when {
+    flex-shrink: 0; font-size: 0.68rem; font-weight: 800; color: #fff;
+    background: var(--warm-orange); padding: 3px 8px; border-radius: 6px; min-width: 52px; text-align: center;
+  }
+  .node-item.soon .when { background: var(--xhs-red); }
+  .node-item .node-name { font-weight: 700; font-size: 0.9rem; }
+  .node-item .node-note { font-size: 0.76rem; color: var(--ink-2); }
+  .node-item .heat { margin-left: auto; flex-shrink: 0; }
+
+  /* 主题标签云 */
+  .theme-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+  .theme-tag {
+    font-size: 0.82rem; font-weight: 600; padding: 6px 13px; border-radius: 999px;
+    background: var(--warm-gold-soft); color: #8A5A00; border: 1px solid #F0DCA8;
+    display: inline-flex; align-items: center; gap: 5px;
+  }
+  .theme-tag.hot { background: var(--xhs-red-soft); color: var(--xhs-red-deep); border-color: #F7C6CE; }
+  .theme-tag .rank { font-size: 0.72em; font-weight: 800; opacity: 0.7; }
+  .theme-tag .mom { font-size: 0.72em; font-weight: 700; }
+
+  /* 选品：四类信号 */
+  .signal-legend { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 14px; font-size: 0.76rem; }
+  .signal-legend span { display: inline-flex; align-items: center; gap: 5px; color: var(--ink-2); font-weight: 600; }
+  .dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+  .dot-follow { background: var(--xhs-red); } .dot-potential { background: var(--warm-gold); }
+  .dot-base { background: var(--info); } .dot-diff { background: var(--good); }
+
+  .pick-item { border-left: 4px solid var(--line); padding: 12px 14px; background: var(--bg); border-radius: 0 var(--r-md) var(--r-md) 0; }
+  .pick-item + .pick-item { margin-top: 10px; }
+  .pick-item.follow { border-left-color: var(--xhs-red); }
+  .pick-item.potential { border-left-color: var(--warm-gold); }
+  .pick-item.base { border-left-color: var(--info); }
+  .pick-item.diff { border-left-color: var(--good); }
+  .pick-item .pick-top { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .pick-item .pick-name { font-weight: 800; font-size: 0.95rem; }
+  .pick-item .pick-badge { font-size: 0.68rem; font-weight: 800; padding: 2px 8px; border-radius: 999px; }
+  .badge-follow { background: var(--xhs-red-soft); color: var(--xhs-red-deep); }
+  .badge-potential { background: var(--warm-gold-soft); color: #8A5A00; }
+  .badge-base { background: var(--info-soft); color: var(--info); }
+  .badge-diff { background: var(--good-soft); color: var(--good); }
+  .pick-item .pick-metrics { margin-left: auto; display: flex; gap: 10px; font-size: 0.74rem; color: var(--ink-2); }
+  .pick-item .pick-metrics b { color: var(--ink-0); font-weight: 800; }
+  .pick-item .pick-note { font-size: 0.8rem; color: var(--ink-1); margin-top: 6px; }
+  .pick-item .pick-note .kw { color: var(--xhs-red); font-weight: 700; }
+
+  /* 高潜色卡（已移除渲染，样式保留占位可清） */
+
+  /* ---- 近14天加购曲线 sparkline ---- */
+  .curve-block { margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--line); }
+  .curve-head { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .curve-title { font-size: 0.82rem; font-weight: 700; color: var(--ink-1); }
+  .curve-badge { font-size: 0.66rem; font-weight: 800; color: #fff; border-radius: 999px; padding: 2px 9px; }
+  .curve-badge.surge { background: linear-gradient(135deg, var(--xhs-red), var(--warm-orange)); }
+  .curve-badge.rise { background: var(--good); }
+  .curve-badge.flat { background: var(--ink-3); }
+  .curve-badge.fall { background: var(--info); }
+  .curve-range { font-size: 0.68rem; color: var(--ink-3); margin-left: auto; }
+  .curve-svg { width: 100%; height: 46px; display: block; }
+  .curve-line { fill: none; stroke-width: 2.2; vector-effect: non-scaling-stroke; stroke-linejoin: round; stroke-linecap: round; }
+  .curve-line.surge { stroke: var(--xhs-red); }
+  .curve-line.rise { stroke: var(--good); }
+  .curve-line.flat { stroke: var(--ink-3); }
+  .curve-line.fall { stroke: var(--info); }
+  .curve-dot.surge { fill: var(--xhs-red); }
+  .curve-dot.rise { fill: var(--good); }
+  .curve-dot.flat { fill: var(--ink-3); }
+  .curve-dot.fall { fill: var(--info); }
+  .curve-area { opacity: 0.5; }
+  .curve-area.surge .cg-top, #cg-surface .cg-top { }
+  .cg-top { stop-color: var(--warm-orange); stop-opacity: 0.28; }
+  .cg-bot { stop-color: var(--warm-orange); stop-opacity: 0; }
+  .curve-note { margin-top: 8px; font-size: 0.78rem; line-height: 1.55; color: var(--ink-2); }
+
+  /* ---- 价格带分布块 ---- */
+  .pband-legend { display: flex; gap: 16px; margin-bottom: 12px; font-size: 0.74rem; }
+  .pband-legend span { display: inline-flex; align-items: center; gap: 5px; color: var(--ink-2); font-weight: 600; }
+  .pb-dot { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+  .pb-dot.order { background: linear-gradient(90deg, var(--xhs-red), var(--warm-orange)); }
+  .pb-dot.gmv { background: var(--warm-gold); opacity: 0.55; }
+  .pband-list { display: flex; flex-direction: column; gap: 12px; }
+  .pband-row { display: grid; grid-template-columns: 78px 1fr; gap: 10px; align-items: center; }
+  .pband-row.hot .pband-label { color: var(--xhs-red-deep); font-weight: 800; }
+  .pband-label { font-size: 0.82rem; font-weight: 700; color: var(--ink-1); display: flex; flex-direction: column; gap: 3px; }
+  .pband-tag { font-size: 0.6rem; font-weight: 800; color: #fff; background: linear-gradient(135deg, var(--xhs-red), var(--warm-orange)); border-radius: 999px; padding: 1px 7px; width: fit-content; }
+  .pband-bars { display: flex; flex-direction: column; gap: 5px; }
+  .pband-bar-wrap { display: flex; align-items: center; gap: 7px; }
+  .pband-bar { height: 11px; border-radius: 999px; min-width: 3px; transition: width 0.6s var(--ease); }
+  .pband-bar.order { background: linear-gradient(90deg, var(--xhs-red), var(--warm-orange)); }
+  .pband-bar.gmv { background: var(--warm-gold); opacity: 0.55; }
+  .pband-val { font-size: 0.72rem; font-weight: 700; color: var(--ink-2); flex-shrink: 0; }
+  .pick-insight { margin-top: 14px; font-size: 0.82rem; line-height: 1.6; color: var(--ink-1); background: var(--xhs-red-soft); border-radius: var(--r-md); padding: 11px 13px; }
+  .pick-insight b { color: var(--xhs-red-deep); }
+
+  /* ---- 去年同期爆发趋势块 ---- */
+  .lys-list { display: flex; flex-direction: column; gap: 10px; }
+  .lys-row { display: grid; grid-template-columns: 76px 1fr 96px; gap: 10px; align-items: end; }
+  .lys-theme { font-size: 0.8rem; font-weight: 700; color: var(--ink-1); align-self: center; }
+  .lys-spark { display: flex; align-items: flex-end; gap: 4px; height: 40px; }
+  .lys-bar-wrap { flex: 1; height: 100%; display: flex; align-items: flex-end; }
+  .lys-bar { width: 100%; background: linear-gradient(180deg, var(--warm-orange), var(--xhs-red)); border-radius: 3px 3px 0 0; transition: height 0.6s var(--ease); }
+  .lys-surge { font-size: 0.68rem; font-weight: 700; color: var(--good); align-self: center; line-height: 1.3; }
+  .lys-axis { display: flex; justify-content: space-between; margin: 6px 0 0 86px; font-size: 0.66rem; color: var(--ink-3); }
+  @media (max-width: 560px) {
+    .lys-row { grid-template-columns: 60px 1fr 80px; gap: 6px; }
+    .lys-theme { font-size: 0.72rem; }
+    .lys-surge { font-size: 0.62rem; }
+    .pband-row { grid-template-columns: 68px 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .pband-bar, .lys-bar { transition: none; }
+  }
+
+
+  /* 内容打法：子tab（笔记/直播） */
+  .subtabs { display: flex; gap: 6px; margin-bottom: 14px; background: var(--bg); padding: 5px; border-radius: var(--r-md); border: 1px solid var(--line); }
+  .subtab-btn {
+    flex: 1; appearance: none; border: none; cursor: pointer; font-family: inherit;
+    font-size: 0.88rem; font-weight: 700; color: var(--ink-2); background: transparent;
+    padding: 9px; border-radius: var(--r-sm); transition: all 0.2s var(--ease);
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+  }
+  .subtab-btn[aria-selected="true"] { color: var(--xhs-red-deep); background: #fff; box-shadow: var(--shadow-sm); }
+  .subtab-btn:focus-visible { outline: 2px solid var(--xhs-red); outline-offset: 1px; }
+  .subpanel { display: none; } .subpanel.active { display: block; animation: fadeIn 0.3s var(--ease); }
+
+  /* 高低对照 */
+  .vs-grid { display: grid; gap: 12px; }
+  @media (min-width: 640px) { .vs-grid { grid-template-columns: 1fr 1fr; } }
+  .vs-col { border-radius: var(--r-md); padding: 14px; }
+  .vs-col.good { background: var(--good-soft); border: 1px solid #BFE6D3; }
+  .vs-col.bad { background: var(--bad-soft); border: 1px solid #F6CFC5; }
+  .vs-col .vs-head { font-weight: 800; font-size: 0.9rem; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+  .vs-col.good .vs-head { color: var(--good); } .vs-col.bad .vs-head { color: var(--bad); }
+  .vs-col ul { list-style: none; display: grid; gap: 8px; }
+  .vs-col li { font-size: 0.82rem; line-height: 1.5; padding-left: 18px; position: relative; color: var(--ink-1); }
+  .vs-col.good li::before { content: "✓"; position: absolute; left: 0; color: var(--good); font-weight: 800; }
+  .vs-col.bad li::before { content: "✕"; position: absolute; left: 0; color: var(--bad); font-weight: 800; }
+  .vs-col li b { color: var(--ink-0); }
+
+  /* 爆款模板卡 */
+  .tmpl-card { border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden; }
+  .tmpl-card + .tmpl-card { margin-top: 12px; }
+  .tmpl-head {
+    background: linear-gradient(135deg, var(--xhs-red-soft), var(--warm-gold-soft));
+    padding: 12px 14px; display: flex; align-items: center; gap: 10px; cursor: pointer;
+  }
+  .tmpl-head .tmpl-idx { width: 24px; height: 24px; border-radius: 7px; background: var(--xhs-red); color: #fff; font-weight: 800; font-size: 0.8rem; display: grid; place-items: center; flex-shrink: 0; }
+  .tmpl-head .tmpl-name { font-weight: 800; font-size: 0.92rem; }
+  .tmpl-head .tmpl-ref-chip {
+    font-size: 0.64rem; font-weight: 800; color: var(--good);
+    background: var(--good-soft); border-radius: 999px; padding: 2px 8px;
+    white-space: nowrap; letter-spacing: 0.01em; flex-shrink: 0;
+  }
+  .tmpl-head .tmpl-heat { margin-left: auto; font-size: 0.74rem; color: var(--ink-2); display: flex; align-items: center; gap: 4px; }
+  .tmpl-head .caret { transition: transform 0.3s var(--ease); color: var(--ink-3); }
+  .tmpl-head[aria-expanded="true"] .caret { transform: rotate(180deg); }
+  .tmpl-ref-cta {
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+    margin-top: 12px; padding: 10px 14px;
+    font-size: 0.85rem; font-weight: 800; text-decoration: none;
+    color: #fff; background: linear-gradient(135deg, var(--xhs-red), var(--warm-orange));
+    border-radius: var(--r-md); box-shadow: 0 2px 8px rgba(232,16,46,0.18);
+    transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+    -webkit-tap-highlight-color: transparent; touch-action: manipulation;
+  }
+  @media (hover: hover) { .tmpl-ref-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 14px rgba(232,16,46,0.26); } }
+  .tmpl-ref-cta:active { transform: translateY(0) scale(0.98); }
+  .tmpl-ref-cta .arr { font-weight: 700; }
+  @media (prefers-reduced-motion: reduce) { .tmpl-ref-cta { transition: none; } }
+  .tmpl-body { padding: 0 14px; max-height: 0; overflow: hidden; transition: max-height 0.4s var(--ease), padding 0.4s var(--ease); }
+  .tmpl-body.open { max-height: 1200px; padding: 14px; }
+  .tmpl-field { display: flex; gap: 10px; padding: 7px 0; border-bottom: 1px dashed var(--line); font-size: 0.82rem; }
+  .tmpl-field:last-child { border-bottom: none; }
+  .tmpl-field .fk { flex-shrink: 0; width: 76px; color: var(--ink-2); font-weight: 700; }
+  .tmpl-field .fv { color: var(--ink-1); flex: 1; }
+  .tmpl-field .fv .code { background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 1px 7px; font-size: 0.92em; color: var(--xhs-red-deep); font-weight: 600; }
+  .tmpl-field .fv .tagchip { display: inline-block; background: var(--info-soft); color: var(--info); border-radius: 999px; padding: 1px 8px; margin: 2px 3px 2px 0; font-size: 0.9em; font-weight: 600; }
+  .ref-link { color: var(--info); font-weight: 600; text-decoration: none; border-bottom: 1px dashed var(--info); }
+  .ref-link::before { content: "🔗 "; }
+
+  /* 直播：形式卡 / 货盘 / 话术 / 联动 */
+  .live-format { display: grid; gap: 10px; }
+  .lf-item { display: flex; gap: 12px; padding: 12px; background: var(--bg); border-radius: var(--r-md); border: 1px solid var(--line); }
+  .lf-item .lf-icon { font-size: 1.5rem; flex-shrink: 0; }
+  .lf-item .lf-name { font-weight: 800; font-size: 0.9rem; }
+  .lf-item .lf-name .lf-heat { font-size: 0.72rem; font-weight: 700; color: var(--warm-orange); margin-left: 6px; }
+  .lf-item .lf-desc { font-size: 0.8rem; color: var(--ink-1); margin-top: 3px; }
+
+  /* 货盘阶梯 */
+  .pallet { display: grid; gap: 8px; }
+  .pallet-step { display: flex; align-items: center; gap: 12px; padding: 11px 14px; border-radius: var(--r-md); position: relative; }
+  .pallet-step.s1 { background: var(--info-soft); } .pallet-step.s2 { background: var(--warm-gold-soft); } .pallet-step.s3 { background: var(--xhs-red-soft); }
+  .pallet-step .ps-role { flex-shrink: 0; font-size: 0.7rem; font-weight: 800; padding: 3px 9px; border-radius: 6px; color: #fff; }
+  .pallet-step.s1 .ps-role { background: var(--info); } .pallet-step.s2 .ps-role { background: var(--warm-gold); } .pallet-step.s3 .ps-role { background: var(--xhs-red); }
+  .pallet-step .ps-name { font-weight: 700; font-size: 0.86rem; }
+  .pallet-step .ps-note { font-size: 0.76rem; color: var(--ink-2); margin-top: 1px; }
+
+  /* 话术要点 */
+  .script-list { display: grid; gap: 9px; }
+  .script-item { padding: 11px 13px; background: var(--bg); border-radius: var(--r-md); border-left: 3px solid var(--warm-orange); }
+  .script-item .si-scene { font-size: 0.74rem; font-weight: 800; color: var(--warm-orange); }
+  .script-item .si-text { font-size: 0.84rem; color: var(--ink-1); margin-top: 3px; }
+  .script-item .si-text .quote { color: var(--ink-0); font-weight: 600; font-style: normal; }
+
+  /* 联动打法 */
+  .combo { display: grid; gap: 10px; }
+  .combo-item { display: flex; gap: 10px; align-items: flex-start; padding: 11px 13px; background: linear-gradient(135deg, #fff, var(--info-soft)); border-radius: var(--r-md); border: 1px solid #D6E2FA; }
+  .combo-item .ci-step { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--info); color: #fff; font-size: 0.74rem; font-weight: 800; display: grid; place-items: center; }
+  .combo-item .ci-text { font-size: 0.83rem; color: var(--ink-1); }
+  .combo-item .ci-text b { color: var(--ink-0); }
+
+  /* 发布节奏：时间线 + 两套打法 */
+  .cadence-legend { display: flex; gap: 16px; margin-bottom: 14px; font-size: 0.76rem; flex-wrap: wrap; }
+  .cadence-legend span { display: inline-flex; align-items: center; gap: 6px; color: var(--ink-2); font-weight: 600; }
+  .legend-note { width: 14px; height: 14px; border-radius: 4px; background: var(--info); }
+  .legend-live { width: 14px; height: 14px; border-radius: 4px; background: var(--xhs-red); }
+
+  .timeline { position: relative; padding-left: 8px; }
+  .tl-row { display: flex; align-items: center; gap: 10px; padding: 9px 0; border-bottom: 1px dashed var(--line); }
+  .tl-row:last-child { border-bottom: none; }
+  .tl-day { flex-shrink: 0; width: 60px; font-size: 0.76rem; font-weight: 800; color: var(--ink-1); }
+  .tl-bars { flex: 1; display: grid; gap: 4px; }
+  .tl-bar { height: 20px; border-radius: 6px; display: flex; align-items: center; padding: 0 8px; font-size: 0.68rem; font-weight: 700; color: #fff; white-space: nowrap; overflow: hidden; }
+  .tl-bar.note { background: linear-gradient(90deg, var(--info), #6B92EA); }
+  .tl-bar.live { background: linear-gradient(90deg, var(--xhs-red), var(--warm-orange)); }
+  .tl-bar.empty { background: transparent; color: var(--ink-3); border: 1px dashed var(--line-strong); }
+
+  .playbook-grid { display: grid; gap: 12px; margin-top: 4px; }
+  @media (min-width: 640px) { .playbook-grid { grid-template-columns: 1fr 1fr; } }
+  .playbook { border-radius: var(--r-md); padding: 15px; border: 1px solid var(--line); }
+  .playbook.sustain { background: linear-gradient(135deg, #fff, var(--good-soft)); border-color: #BFE6D3; }
+  .playbook.harvest { background: linear-gradient(135deg, #fff, var(--warm-orange-soft)); border-color: #F6D3C0; }
+  .playbook .pb-head { font-weight: 800; font-size: 0.92rem; display: flex; align-items: center; gap: 6px; }
+  .playbook.sustain .pb-head { color: var(--good); } .playbook.harvest .pb-head { color: var(--warm-orange); }
+  .playbook .pb-freq { font-size: 0.74rem; font-weight: 700; margin: 6px 0 10px; padding: 3px 10px; border-radius: 999px; display: inline-block; }
+  .playbook.sustain .pb-freq { background: var(--good-soft); color: var(--good); }
+  .playbook.harvest .pb-freq { background: var(--warm-orange-soft); color: var(--warm-orange); }
+  .playbook ul { list-style: none; display: grid; gap: 6px; }
+  .playbook li { font-size: 0.8rem; color: var(--ink-1); padding-left: 15px; position: relative; }
+  .playbook li::before { content: "·"; position: absolute; left: 4px; font-weight: 800; }
+  .playbook .pb-warn { margin-top: 10px; font-size: 0.74rem; color: var(--bad); background: var(--bad-soft); padding: 7px 10px; border-radius: 8px; font-weight: 600; }
+
+  /* 免责/口径声明 */
+  .disclaimer {
+    margin: 10px 0 0; font-size: 0.72rem; color: var(--ink-3); line-height: 1.5;
+    background: var(--bg); border: 1px dashed var(--line-strong); border-radius: var(--r-md); padding: 10px 12px;
+  }
+  .disclaimer b { color: var(--ink-2); }
+
+  footer.foot { max-width: var(--maxw); margin: 40px auto 0; padding: 20px 16px; text-align: center; color: var(--ink-3); font-size: 0.74rem; line-height: 1.6; border-top: 1px solid var(--line); }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  }
+</style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <div class="topbar__title">
+        行业风向指引<span class="tag tag-exclusive">✦ 肖宇商家专属版</span>
+      </div>
+      <div class="topbar__sub" id="topSub">节庆礼品 · 摆件 · 潮玩 —— 趋势 + 商家动作全链路指引</div>
+      <div class="topbar__meta">
+        <span class="chip">数据周期 <b id="metaPeriod">W__ · __.__—__.__</b></span>
+        <span class="chip">更新频率 <b id="metaFreq">每周</b></span>
+        <span class="chip" id="metaScope">脱敏口径 · 档位/排名/占比</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs" aria-label="行业方向">
+    <div class="tabs__inner" role="tablist" id="tablist"></div>
+  </nav>
+
+  <main class="wrap" id="panels"></main>
+
+  <footer class="foot" id="foot"></footer>
+
+<script>
+/* ============================================================
+   DASHBOARD_DATA —— 全部内容与占位数据集中于此
+   BI 助手：只需替换本对象内的值（热度档/排名/占比/趋势词/榜单/参考笔记链接），
+   无需改动任何 HTML 结构或渲染逻辑。字段语义见注释。
+   ============================================================ */
+const DASHBOARD_DATA = {
+  meta: {
+    period: "近14天 · 06.29—07.12",   // 数据周期，BI 填
+    freq: "每周",                   // 更新频率
+    scopeNote: "脱敏口径 · 档位/排名/占比"
+  },
+  // 全局口径声明（每个方向底部复用）
+  disclaimer: "数据为从高表现笔记聚类出的<b>相关性画像，非因果证明</b>；热度以档位（🔥）、排名（TopN）、占比（%）脱敏呈现，不含站内绝对数值。建议<b>优先参考本方向案例</b>，跨方向套用需结合自身供应链判断。",
+  directions: []  // 三方向数据在下方 script 注入
+};
+
+/* ---------- 方向一：节庆用品 & 礼品（焦点轴 = 日历节点） ---------- */
+DASHBOARD_DATA.directions.push({
+  key: "festival",
+  emoji: "🎁",
+  name: "节庆礼品",
+  focusAxis: { label: "节日节点", hint: "按临近日期排列，最近的默认选中；节点内含备货阶段" },
+  focuses: [
+    /* --- 焦点1：七夕（生命周期按 festivalDate 自动路由） --- */
+    {
+      id: "qixi", when: "临近", name: "七夕", icon: "💕", soon: true,
+      festivalDate: "2026-08-19",
+      lifecycle: "预热期", lifecycleClass: "warmup",
+      summary: {
+        stage: "预热期",
+        headline: "七夕尚在<span class='hl'>预热期</span>（距七夕约5周），站内已冒头方向以「<span class='hl'>悦己香氛 + 约会仪式感</span>」为主，香薰香水靠爆款带飞（头部「找不到更好闻的奶香」1.8万赞）、约会穿搭笔记量最大。",
+        action: "最该抓的一件事：<b>提前卡位「悦己香水 + 约会穿搭」</b>——香水是当前唯一出爆款的赛道（平价香水捡漏、拿捏Crush的高级感香味），约会穿搭笔记量最大（氛围感小裙子、显瘦泡泡袖OOTD），用「送自己/约会日」场景铺内容蓄水，抢在冲刺期前占搜索。",
+        dailyCurve: { vals: [23749, 22689, 23900, 23840, 23462, 24697, 26598, 25055, 23494, 24679, 23169, 24423, 25761, 27175], peak: 27175, trend: "平稳微升", range: "06.29~07.12", note: "近14天加购稳定在2.4万/天,末日冲上2.7万,七夕预热开始零星启动;去年规律看七夕前3周(约7月底)才起量,现在是蓄水期" },
+        signals: [
+          { label: "当前阶段", value: "预热期", trend: "距七夕约5周，量未起", dir: "flat" },
+          { label: "内容热度", value: "🔥🔥", trend: "香氛爆款带飞", dir: "up" },
+          { label: "核心钩子", value: "悦己香氛+约会感", trend: "供给分散、机会多", dir: "up" }
+        ]
+      },
+      trend: {
+        lookahead: [
+          { when: "本周(预热)", name: "悦己香氛/约会穿搭", note: "香薰香水出爆款、约会穿搭量最大", heat: 2, soon: true },
+          { when: "3-4周", name: "七夕冲刺起量", note: "对戒/信物/送对象将陡增(去年前3周爆)", heat: 3 },
+          { when: "节后", name: "教师节+中秋预热", note: "送老师、送长辈切换", heat: 2 }
+        ],
+        lookback: [
+          { name: "香薰香水(悦己向)", heat: 3, mom: "+高", note: "头部爆款1.8万赞带飞(「找不到更好闻的奶香」)，「悦己香氛」是核心卖点" },
+          { name: "约会穿搭", heat: 3, mom: "+高", note: "笔记量最大(21篇)，「一吻定情刺绣裙」等约会场景内容多" },
+          { name: "情侣对戒/定情信物", heat: 2, mom: "+中", note: "「小众誓言对戒/独有浪漫告白」叙事强，是七夕硬通货" }
+        ],
+        themes: [
+          { name: "悦己香氛", rank: 1, hot: true, mom: "+高" },
+          { name: "约会穿搭", rank: 2, hot: true, mom: "+高" },
+          { name: "情侣信物/对戒", rank: 3, hot: true, mom: "+中" },
+          { name: "美妆悦己", rank: 4, mom: "+中" },
+          { name: "送对象/纪念礼", rank: 5, mom: "+中" }
+        ],
+        themeNote: "预热期以「悦己香氛 + 约会仪式感」为主钩；纯七夕商品(对戒/礼盒)量尚未起，正是提前卡位窗口。"
+      },
+      picks: {
+        items: [
+          { level: "follow", name: "香薰香水(悦己向)", badge: "立即跟进", metrics: [["热度","🔥🔥🔥"],["竞争","分散"]], note: "当前<b>唯一出爆款的赛道</b>，头部「找不到更好闻的奶香」1.8万赞。绑 <span class='kw'>#香水推荐 #七夕礼物</span>，主打「悦己香氛」情绪。" },
+          { level: "potential", name: "约会穿搭/仪式感", badge: "高潜布局", metrics: [["热度","🔥🔥"],["笔记量","最大"]], note: "笔记量最大赛道(21篇)，「一吻定情刺绣裙」等约会场景内容，提前铺「约会日穿搭」抢冲刺期搜索。" },
+          { level: "base", name: "情侣对戒/定情信物", badge: "基本盘", metrics: [["热度","🔥🔥"],["溢价","中高"]], note: "「小众誓言对戒/独有浪漫告白」叙事强(1807赞)，七夕硬通货，稳走客单。" },
+          { level: "diff", name: "美妆/悦己食品", badge: "差异化", metrics: [["热度","🔥"],["客单","中"]], note: "「520甜蜜巧克力慕斯杯」等悦己向内容，把节日流量导向自我犒赏，差异化突围。" }
+        ],
+        priceNote: "价位带参考(据真实成交)：平价悦己款 <¥50 引流、主力礼物 ¥50–200 承接、香薰礼盒/对戒 ¥200+ 拉客单(GMV担当)。",
+        colors: [
+          { hex: "#E8452E", name: "热恋红", note: "七夕主视觉" },
+          { hex: "#D4A5A5", name: "雾感玫瑰", note: "送女友、浪漫向" },
+          { hex: "#F5A623", name: "香槟金", note: "轻奢礼赠感" },
+          { hex: "#7B5EA7", name: "梦幻紫", note: "浪漫惊喜氛围" }
+        ],
+        priceBands: {
+          note: "七夕相关带货笔记的真实成交价格带（近14天）。看「下单占比」定主流价位、「GMV占比」看利润贡献。",
+          bands: [
+            { label: "0-20元",   order: 22.9, gmv: 4.7 },
+            { label: "20-50元",  order: 35.3, gmv: 16.9, hot: true },
+            { label: "50-100元", order: 23.9, gmv: 22.6, hot: true },
+            { label: "100-200元",order: 9.4,  gmv: 16.9 },
+            { label: "200元+",   order: 9.3,  gmv: 39.1 }
+          ],
+          insight: "主流成交在 <b>20-100元</b>（占 59% 下单）；「走心低价礼物」的真实价格带是 <b>20-50元</b>，不是越便宜越好（0-20元 GMV 仅 4.7%）。50元定价正处主流甜蜜区；200元+虽仅9%下单却贡献39%GMV，高客单礼盒是利润担当。"
+        },
+        lastYearSurge: {
+          note: "去年七夕（8/29）前 4 周，各送礼品类头部笔记的加购趋势。W1=4周前 → W4=1周前。看「什么品类、什么时候起量」。",
+          weeks: ["4周前","3周前","2周前","1周前"],
+          rows: [
+            { theme: "首饰配饰",     vals: [3865,26749,22577,28733], surge: "3周前 ×6.9" },
+            { theme: "手链/手绳",    vals: [1016,6240,8981,12722],   surge: "3周前 ×6.1 持续爬" },
+            { theme: "香薰香水",     vals: [223,4864,4076,5353],     surge: "3周前 ×21.8 最猛" },
+            { theme: "情侣对戒",     vals: [1791,4505,5976,6442],    surge: "3周前 ×2.5 稳爬" },
+            { theme: "数码礼物",     vals: [839,5157,3134,1178],     surge: "3周前冲高即回落" },
+            { theme: "DIY走心摆件",  vals: [5140,3519,4878,6489],    surge: "全程平稳无爆发" },
+            { theme: "手表",         vals: [211,145,0,1110],         surge: "1周前才起（临期）" }
+          ],
+          insight: "去年七夕送礼的起量窗口高度集中在 <b>七夕前 3 周</b>——首饰/香薰/手链同时爆发。今年七夕 8/19，倒推 <b>7 月底～8 月初就该全力铺货</b>（现在距七夕约 5 周，正是蓄水布局期）。首饰/香薰/手链是稳赢主力（起量早、量大、不回落）。"
+        }
+      },
+      note: {
+        vsGood: [
+          "封面直给<b>「送男/女友」场景</b>：拆礼瞬间对方的反应最抓眼",
+          "标题带<b>关系+预算</b>：「200元把男友哄开心」精准圈层",
+          "正文用<b>送对象清单体</b>，按预算分档，帮用户做完选择题",
+          "突出<b>定制/刻字的专属感</b>，制造「唯一」情绪"
+        ],
+        vsBad: [
+          "封面只摆礼盒图、无人无情绪，<b>看不出是送对象</b>",
+          "标题「七夕礼盒上新」<b>公告体</b>，无关系钩子",
+          "正文堆材质参数，<b>不讲送礼场景</b>与心意",
+          "临期还主推需长工期的定制款，<b>赶不上节点</b>"
+        ],
+        templates: [
+          { name: "约会穿搭种草体", heat: 3,
+            fields: [["适用商品","约会连衣裙/氛围感穿搭"],["标题模板","「一些绝美氛围感的小裙子」/「七夕约会穿搭｜谁穿谁好看」"],["正文结构","约会/氛围感钩子开头→多套穿搭合集展示→显瘦显白卖点→约会场景点题→穿搭标签铺量"],["推荐标签",["#七夕约会穿搭","#氛围感神仙小裙子","#约会穿搭"]],["参考笔记","https://www.xiaohongshu.com/discovery/item/6895b93800000000250217ca"]] },
+          { name: "悦己香氛种草体", heat: 3,
+            fields: [["适用商品","平价香水/氛围香氛"],["标题模板","「拿捏Crush的小秘诀」/「9💰捡漏大跳水！之前可是199」"],["正文结构","香味体验/捡漏钩子→香调分层描述→平价高级感反差→约会/送女友场景→香水标签铺量"],["推荐标签",["#香水推荐","#平价香水","#香水推荐送女友"]],["参考笔记","https://www.xiaohongshu.com/discovery/item/68a69530000000001d039ded"]] },
+          { name: "爆款对戒背书体", heat: 2,
+            fields: [["适用商品","情侣对戒/限定礼盒"],["标题模板","「最近被问爆的XX七夕情侣对戒王炸款💍」"],["正文结构","爆款/被问爆开头→限定礼盒仪式感→情感文案点题→话题标签铺量"],["推荐标签",["#情侣对戒","#七夕礼物","#七夕送男朋友礼物"]],["参考笔记","https://www.xiaohongshu.com/discovery/item/66a8bbec000000002701df2a"]] }
+        ]
+      },
+      live: {
+        formats: [
+          { icon: "💝", name: "送对象场景演示", heat: "转化🔥🔥🔥", desc: "演示拆礼+定制卡+包装，把「送出去多有面子」演给用户看。" },
+          { icon: "⏰", name: "七夕截单冲刺场", heat: "转化🔥🔥🔥", desc: "节前密集开播，定制款截单倒计时，制造「再不下单就赶不上」紧迫感。" },
+          { icon: "🙋", name: "帮你选礼连麦", heat: "停留🔥🔥", desc: "按弹幕报的关系/预算现场配礼，替用户决策，停留高。" }
+        ],
+        pallet: [
+          { role: "引流", name: "表白平价款 <¥129", note: "低价钩子，讲「送对象合适」引人气" },
+          { role: "承接", name: "主力情侣礼盒 ¥129–399", note: "主推款，演示定制+包装+加价购" },
+          { role: "利润", name: "高端定制礼盒 ¥399+", note: "讲专属唯一，拉高客单" }
+        ],
+        scripts: [
+          { scene: "开场", text: "「七夕就剩几天了，报出你送<span class='quote'>男友还是女友+预算</span>，我直接帮你配好，别到时候手忙脚乱。」" },
+          { scene: "憋单", text: "「定制刻字的名额<span class='quote'>今天截单最后＿单</span>，过了工期就赶不上七夕当天了。」" },
+          { scene: "逼单", text: "「现在下单<span class='quote'>包七夕前送达</span>，还送贺卡+惊喜包装，送出去绝对有面子。」" }
+        ],
+        combo: [
+          { text: "<b>预告笔记</b>：节前 2 天发「七夕礼物专场预告」挂预约，把种草流量蓄进直播间。" },
+          { text: "<b>直播切片</b>：把「定制开箱高光」剪成笔记，承接「送对象七夕礼物」长尾搜索。" },
+          { text: "<b>评论区置顶</b>：直播后置顶「回放+按预算爆款清单」，延续到节点当天。" }
+        ]
+      },
+      cadence: {
+        timeline: [
+          { day: "节前2周", note: "预热：情侣礼灵感、定制款种草", live: "试播：定制款测品" },
+          { day: "节前1周", note: "决策内容：按关系/预算分层清单", live: "常态开播：主力礼盒" },
+          { day: "节前3天", note: "冲刺催单：定制截单提醒", live: "密集专场：截单倒计时" },
+          { day: "七夕当周", note: "临门收割：包节前达+现货款", live: "冲刺专场：现货加价购" },
+          { day: "节后", note: "余温：补送/纪念日承接", live: "常态：日常表白款" }
+        ],
+        playbookSustain: {
+          freq: "长期 · 每周 3–4 篇",
+          items: ["店主选礼理念，建立「懂送对象」专业感","情侣礼灵感、纪念日场景持续输出","真实客户送礼反馈、破防返图"]
+        },
+        playbookHarvest: {
+          freq: "节前 2 周 · 可提频",
+          items: ["预算锚定：「＿元哄开心」清单","截单催单：「定制赶七夕最后＿天」","限时礼盒+加价购钩子"],
+          warn: "截单/催单型仅在七夕冲刺期用，平日高频发会被判模板化压流量。"
+        }
+      }
+    },
+    /* --- 焦点2：中秋/教师节（3-4周·蓄水期） --- */
+    {
+      id: "midautumn", when: "3-4周", name: "中秋 / 教师节", icon: "🌕",
+      festivalDate: "2026-09-10",
+      lifecycle: "蓄水期", lifecycleClass: "warmup",
+      summary: {
+        stage: "蓄水期",
+        headline: "中秋+教师节双节将至，<span class='hl'>送长辈、送领导、送老师</span>需求起量，月饼与滋补礼盒是主战场。",
+        action: "最该抓的一件事：<b>提前铺「送长辈/送领导得体」内容</b>，月饼礼盒+茶叶滋补组合，蓄水期先卡位搜索。",
+        signals: [
+          { label: "当前阶段", value: "蓄水期", trend: "声量爬坡", dir: "up" },
+          { label: "求购热度", value: "🔥🔥", trend: "环比上行", dir: "up" },
+          { label: "核心钩子", value: "送长辈得体", trend: "决策内容稀缺", dir: "up" }
+        ]
+      },
+      trend: {
+        lookahead: [
+          { when: "3周", name: "教师节", note: "送老师、班级伴手礼", heat: 3, soon: true },
+          { when: "4-5周", name: "中秋", note: "月饼礼盒、送长辈领导", heat: 3 },
+          { when: "节前", name: "企业团购季", note: "中秋福利、批量采购", heat: 2 }
+        ],
+        lookback: [
+          { name: "送长辈月饼礼盒", heat: 3, mom: "+高", note: "传统+健康诉求的礼盒表现最好" },
+          { name: "茶叶/滋补礼盒", heat: 2, mom: "+中", note: "送领导得体，客单高" },
+          { name: "教师节鲜花+文创", heat: 2, mom: "+中", note: "送老师小心意，走量稳" }
+        ],
+        themes: [
+          { name: "送长辈", rank: 1, hot: true, mom: "+高" },
+          { name: "送领导", rank: 2, hot: true, mom: "+高" },
+          { name: "月饼礼盒", rank: 3, mom: "+高" },
+          { name: "得体不出错", rank: 4, mom: "+中" },
+          { name: "送老师", rank: 5, mom: "+中" }
+        ],
+        themeNote: "双节期以「送长辈 / 送领导得体」为主钩，决策型内容供给不足。"
+      },
+      picks: {
+        items: [
+          { level: "follow", name: "中秋月饼礼盒", badge: "立即跟进", metrics: [["求购","🔥🔥🔥"],["竞争","高"]], note: "绑 <span class='kw'>#中秋礼盒 #送长辈</span>，包装+寓意讲透，节前是黄金窗口。" },
+          { level: "potential", name: "茶叶/滋补礼盒", badge: "高潜布局", metrics: [["求购","🔥🔥"],["客单","高"]], note: "送领导得体、客单高，用「体面不踩雷」话术切入。" },
+          { level: "base", name: "教师节鲜花+文创", badge: "基本盘", metrics: [["求购","🔥🔥"],["走量","稳"]], note: "送老师小心意，平价走量稳基本盘。" },
+          { level: "diff", name: "国风非遗伴手礼", badge: "差异化", metrics: [["求购","🔥"],["溢价","高"]], note: "文化礼赠差异化，绑 <span class='kw'>#新中式礼物</span> 拉高客单。" }
+        ],
+        priceNote: "价位带建议：教师节心意款 <¥99 引流、主力月饼礼盒 ¥99–299 承接、滋补/高端礼盒 ¥299+ 拉客单。",
+        colors: [
+          { hex: "#C0392B", name: "中秋朱红", note: "传统礼盒主视觉" },
+          { hex: "#F5A623", name: "月华金", note: "高级礼赠感" },
+          { hex: "#2B5F4E", name: "墨绿", note: "茶叶/男士得体礼" },
+          { hex: "#8A5A2B", name: "古铜棕", note: "国风非遗质感" }
+        ]
+      },
+      note: {
+        vsGood: [
+          "封面直给<b>「送长辈/领导」场景</b>：礼盒摆在长辈家餐桌显得体",
+          "标题带<b>对象+得体诉求</b>：「送领导中秋礼，体面不踩雷」",
+          "正文用<b>得体避雷清单体</b>，讲寓意、讲场合、讲禁忌",
+          "突出<b>包装规格与心意</b>，送长辈重「有面子」"
+        ],
+        vsBad: [
+          "封面只摆月饼图，<b>看不出送谁、显不显心意</b>",
+          "标题「月饼礼盒上市」<b>公告体</b>，无对象钩子",
+          "正文只写口味，<b>不讲送礼场合与得体</b>",
+          "教师节临期还主推需定制的重工款，<b>来不及</b>"
+        ],
+        templates: [
+          { name: "送长辈得体清单体", heat: 3,
+            fields: [["适用商品","月饼/滋补礼盒"],["标题模板","「送＿＿中秋礼，＿元内体面不踩雷」"],["正文结构","送礼焦虑(怕不得体)→按对象分档→寓意/场合说明→引导下单"],["推荐标签",["#中秋礼盒","#送长辈","#送领导"]],["参考笔记","REF_LINK_1"]] },
+          { name: "月饼开箱测评体", heat: 3,
+            fields: [["适用商品","月饼礼盒"],["标题模板","「＿家月饼礼盒真的绝，送人太有面子」"],["正文结构","开箱包装展示→口味实测→送礼场景→购买引导"],["推荐标签",["#月饼","#中秋","#开箱"]],["参考笔记","REF_LINK_2"]] },
+          { name: "教师节小心意体", heat: 2,
+            fields: [["适用商品","教师节平价文创/鲜花"],["标题模板","「教师节送老师＿元也能很有心意」"],["正文结构","送老师顾虑(不宜太贵)→得体选品→显心意技巧→链接"],["推荐标签",["#教师节","#送老师","#平价礼物"]],["参考笔记","REF_LINK_3"]] }
+        ]
+      },
+      live: {
+        formats: [
+          { icon: "🎑", name: "月饼品鉴演示", heat: "转化🔥🔥🔥", desc: "现场开盒品鉴，讲包装寓意与送礼场合，突出送长辈的体面感。" },
+          { icon: "🏢", name: "企业团购专场", heat: "客单🔥🔥", desc: "面向单位福利采购，讲批量+定制logo，拉高单笔客单。" },
+          { icon: "🙋", name: "帮你选双节礼答疑", heat: "停留🔥🔥", desc: "按弹幕报的对象(长辈/领导/老师)现场配礼，替用户避雷。" }
+        ],
+        pallet: [
+          { role: "引流", name: "教师节心意款 <¥99", note: "低价钩子拉人气，讲「小心意也得体」" },
+          { role: "承接", name: "主力月饼礼盒 ¥99–299", note: "主推款，品鉴+寓意+加价购" },
+          { role: "利润", name: "滋补/高端礼盒 ¥299+", note: "讲送领导得体，拉高客单" }
+        ],
+        scripts: [
+          { scene: "开场", text: "「中秋教师节快到了，你是<span class='quote'>送长辈、送领导还是送老师</span>？报一下我帮你配到不踩雷。」" },
+          { scene: "得体逼单", text: "「送长辈就得包装体面、寓意好，这盒<span class='quote'>拎出去有面子</span>，节前下单包送达。」" },
+          { scene: "团购钩子", text: "「单位采购的老板注意，<span class='quote'>批量还能定制logo</span>，量大价优，早订早排产。」" }
+        ],
+        combo: [
+          { text: "<b>预告笔记</b>：节前 3–5 天发「双节送礼避雷指南」挂预约，导流进直播间。" },
+          { text: "<b>直播切片</b>：把「月饼品鉴+送礼场景」剪成笔记，承接「送长辈中秋礼」搜索。" },
+          { text: "<b>企业专线</b>：团购需求引导私信/评论区留资，直播后专人跟进。" }
+        ]
+      },
+      cadence: {
+        timeline: [
+          { day: "节前4周", note: "蓄水种草：双节送礼灵感铺量", live: "" },
+          { day: "节前3周", note: "决策内容：送长辈/领导避雷清单", live: "试播：月饼品鉴测品" },
+          { day: "节前2周", note: "高频铺量：得体清单模板复制", live: "常态开播：主力月饼礼盒" },
+          { day: "节前1周", note: "冲刺催单：包节前送达提醒", live: "密集专场+团购专线" },
+          { day: "双节当周", note: "临门收割：现货款+补送", live: "冲刺专场：现货截单" }
+        ],
+        playbookSustain: {
+          freq: "长期 · 每周 3–4 篇",
+          items: ["店主选礼理念，建立「懂送长辈/领导」专业感","传统节日文化、寓意科普持续输出","真实客户送礼反馈、体面返图"]
+        },
+        playbookHarvest: {
+          freq: "节前 2 周 · 可提频",
+          items: ["得体锚定：「＿元送得体面」清单","时效催单：「中秋前送达最后＿天」","团购批量+定制钩子"],
+          warn: "催单/团购型仅在双节蓄水—冲刺期用，平日高频发会被判模板化压流量。"
+        }
+      }
+    },
+    /* --- 焦点3：国庆/生日季（布局期） --- */
+    {
+      id: "national", when: "布局", name: "国庆 / 生日季", icon: "🎂",
+      festivalDate: "2026-10-01",
+      lifecycle: "布局期", lifecycleClass: "layout",
+      summary: {
+        stage: "布局期",
+        headline: "国庆聚会与<span class='hl'>日常生日礼</span>是节点间的常态盘，声量平稳，靠「生日礼决策」内容长期吃搜索流量。",
+        action: "最该抓的一件事：<b>布局「生日礼/朋友礼」常态款</b>，用聚会伴手礼承接国庆，日常生日礼稳住节点间的流量。",
+        signals: [
+          { label: "当前阶段", value: "布局期", trend: "声量平稳", dir: "flat" },
+          { label: "求购热度", value: "🔥🔥", trend: "日常生日礼稳定", dir: "flat" },
+          { label: "核心机会", value: "生日礼决策", trend: "长尾搜索稳定", dir: "up" }
+        ]
+      },
+      trend: {
+        lookahead: [
+          { when: "临近", name: "国庆聚会 / 旅行", note: "聚会伴手礼、旅行手信", heat: 2, soon: true },
+          { when: "常态", name: "日常生日季", note: "送朋友、送闺蜜生日礼", heat: 3 },
+          { when: "季度外", name: "双11囤礼预热", note: "提前囤送礼、跨年礼", heat: 2 }
+        ],
+        lookback: [
+          { name: "朋友生日礼盒", heat: 3, mom: "+中", note: "日常高频刚需，清单体持续吃量" },
+          { name: "聚会伴手礼", heat: 2, mom: "+中", note: "国庆聚会/回礼场景稳定" },
+          { name: "创意惊喜礼物", heat: 2, mom: "+中", note: "差异化出片，社交传播强" }
+        ],
+        themes: [
+          { name: "送朋友", rank: 1, hot: true, mom: "+中" },
+          { name: "生日礼", rank: 2, hot: true, mom: "+中" },
+          { name: "伴手礼", rank: 3, mom: "+中" },
+          { name: "创意惊喜", rank: 4, mom: "+中" },
+          { name: "闺蜜礼", rank: 5, mom: "+低" }
+        ],
+        themeNote: "布局期以「送朋友 / 生日礼」为长效主钩，靠稳定搜索承接节点间流量。"
+      },
+      picks: {
+        items: [
+          { level: "follow", name: "朋友生日礼盒", badge: "立即跟进", metrics: [["求购","🔥🔥🔥"],["复购","高"]], note: "日常高频刚需，绑 <span class='kw'>#生日礼物 #送朋友</span>，清单款走量。" },
+          { level: "base", name: "聚会伴手礼", badge: "基本盘", metrics: [["求购","🔥🔥"],["走量","稳"]], note: "国庆聚会/回礼场景，小份精致款稳基本盘。" },
+          { level: "base", name: "闺蜜平价礼", badge: "基本盘", metrics: [["求购","🔥🔥"],["复购","稳"]], note: "百元内清单款，靠组合提件单价。" },
+          { level: "diff", name: "创意惊喜礼物", badge: "差异化", metrics: [["求购","🔥"],["传播","强"]], note: "整蛊/解压/创意款差异化，易出片带社交传播。" }
+        ],
+        priceNote: "价位带建议：伴手礼/平价 <¥89 引流、主力生日礼盒 ¥89–259 承接、创意/精致款 ¥259+ 提客单。",
+        colors: [
+          { hex: "#FF7A45", name: "活力橙", note: "生日欢快氛围" },
+          { hex: "#F5A623", name: "明黄", note: "聚会热闹感" },
+          { hex: "#4AA5D9", name: "清透蓝", note: "朋友/中性礼" },
+          { hex: "#D4A5A5", name: "雾玫瑰", note: "闺蜜/女性向" }
+        ]
+      },
+      note: {
+        vsGood: [
+          "封面直给<b>「送朋友生日」场景</b>：拆礼欢乐氛围易共情",
+          "标题带<b>关系+预算</b>：「送闺蜜生日，100出头很拿得出手」",
+          "正文用<b>生日礼清单体</b>，按预算/性别分档减少决策成本",
+          "创意款突出<b>惊喜/出片点</b>，激发社交分享"
+        ],
+        vsBad: [
+          "封面只摆礼盒、<b>无场景无氛围</b>，像日常上新",
+          "标题「生日礼物推荐」<b>过泛无钩子</b>，缺关系/预算",
+          "正文罗列商品，<b>不分场景不帮决策</b>",
+          "常态期天天发收割催单，<b>易被判模板化</b>"
+        ],
+        templates: [
+          { name: "生日礼清单决策体", heat: 3,
+            fields: [["适用商品","生日礼盒/多价位带"],["标题模板","「送＿＿生日，＿元这几件拿得出手」"],["正文结构","送礼场景→按预算/性别分档→每档理由→引导下单"],["推荐标签",["#生日礼物","#送朋友","#送闺蜜"]],["参考笔记","REF_LINK_1"]] },
+          { name: "聚会伴手礼体", heat: 2,
+            fields: [["适用商品","小份精致伴手礼"],["标题模板","「聚会带这个当伴手礼，人人都问链接」"],["正文结构","聚会场景→精致度展示→分享感→组合链接"],["推荐标签",["#伴手礼","#聚会","#回礼"]],["参考笔记","REF_LINK_2"]] },
+          { name: "创意惊喜种草体", heat: 2,
+            fields: [["适用商品","创意/整蛊/解压礼物"],["标题模板","「送＿＿这个礼物，当场笑疯」"],["正文结构","惊喜反应→创意点展示→适用对象→购买引导"],["推荐标签",["#创意礼物","#惊喜","#搞怪"]],["参考笔记","REF_LINK_3"]] }
+        ]
+      },
+      live: {
+        formats: [
+          { icon: "🎉", name: "生日礼场景演示", heat: "转化🔥🔥", desc: "演示不同关系/预算的生日礼搭配，替用户做常态决策。" },
+          { icon: "🧳", name: "聚会/伴手礼专场", heat: "转化🔥🔥", desc: "结合国庆聚会场景，主推小份精致伴手礼与组合装。" },
+          { icon: "🙋", name: "帮你选生日礼答疑", heat: "停留🔥🔥", desc: "按弹幕报的对象/预算现场配礼，日常高频复用。" }
+        ],
+        pallet: [
+          { role: "引流", name: "伴手礼/平价款 <¥89", note: "低价钩子拉人气，讲「聚会/回礼合适」" },
+          { role: "承接", name: "主力生日礼盒 ¥89–259", note: "主推款，按关系演示搭配" },
+          { role: "利润", name: "创意/精致款 ¥259+", note: "讲惊喜与出片，提客单" }
+        ],
+        scripts: [
+          { scene: "开场", text: "「不管今天送谁生日，报出<span class='quote'>关系+预算</span>，我这边常备款直接帮你配好，不用纠结。」" },
+          { scene: "场景带货", text: "「国庆聚会要带伴手礼的，这款<span class='quote'>小份又精致</span>，带出去人人问链接。」" },
+          { scene: "创意钩子", text: "「想送得有记忆点的看这个，<span class='quote'>拆开当场笑疯</span>，朋友绝对记得住你。」" }
+        ],
+        combo: [
+          { text: "<b>预告笔记</b>：常态发「生日礼清单」笔记，评论区挂近期直播预约，长期导流。" },
+          { text: "<b>直播切片</b>：把「按预算配礼」高光剪成笔记，承接「送朋友生日礼」长尾搜索。" },
+          { text: "<b>清单沉淀</b>：直播爆款整理成「生日礼清单」笔记长期置顶，持续吃搜索。" }
+        ]
+      },
+      cadence: {
+        timeline: [
+          { day: "周一", note: "灵感种草：本周生日礼主题", live: "" },
+          { day: "周三", note: "决策清单：按关系/预算分层", live: "常态开播：生日礼搭配" },
+          { day: "周五", note: "创意种草：惊喜款出片", live: "" },
+          { day: "国庆前", note: "聚会承接：伴手礼铺量", live: "聚会/伴手礼专场" },
+          { day: "周末", note: "清单沉淀：爆款合集置顶", live: "帮你选礼答疑场" }
+        ],
+        playbookSustain: {
+          freq: "长期 · 每周 3–4 篇",
+          items: ["店主选礼理念，建立「日常送礼军师」人设","生日礼/朋友礼场景灵感持续输出","真实客户送礼反馈、欢乐返图"]
+        },
+        playbookHarvest: {
+          freq: "国庆/小节点前 · 适度提频",
+          items: ["聚会场景：「国庆聚会伴手礼」清单","预算锚定：「＿元拿得出手」生日礼","创意惊喜款钩子"],
+          warn: "布局期以常态种草为主，收割型别频繁用，日常决策型内容才是长效流量。"
+        }
+      }
+    }
+  ]
+});
+
+/* ---------- 方向二：摆件（焦点轴 = 风格/品类热潮 + 生命周期） ---------- */
+DASHBOARD_DATA.directions.push({
+  key: "decor",
+  emoji: "🏺",
+  name: "摆件",
+  focusAxis: { label: "风格热潮", hint: "按热度生命周期排列，标注升温/高峰/基本盘，帮你判断追不追" },
+  focuses: [
+    /* --- 焦点1：可爱萌物·工位解压摆件（真实热度第1，近14天13.0万赞） --- */
+    {
+      id: "cutepet", when: "正当红", name: "可爱萌物·送礼解压摆件", icon: "🐱", soon: true,
+      lifecycle: "高峰期 · 全力跟进", lifecycleClass: "peak",
+      summary: {
+        stage: "高峰期",
+        headline: "近14天摆件方向<span class='hl'>最热的就是可爱萌物</span>（猫/鸭/蒜鸟等，78篇/13.0万赞）——头部笔记「送朋友这只猫被夸了」3.0万赞，核心打法是<span class='hl'>「送礼场景 + 平价高感知」</span>。",
+        action: "最该抓的一件事：<b>用「拆开不想送人了」的送礼场景拍萌物</b>——这是当前摆件笔记最通用的爆款公式，配「才10r却被当贵礼物」的平价反差。",
+        dailyCurve: { vals: [48682, 52204, 58596, 47137, 46421, 48311, 45374, 40467, 40610, 38045, 38440, 41683, 43365, 48657], peak: 58596, trend: "高位回落", range: "06.29~07.12", note: "稳定4-5万/天大盘,7/1冲高5.8万后回落,后7天较前7天-16%小幅降温,仍是常态热销大盘" },
+        signals: [
+          { label: "真实热度", value: "🔥🔥🔥", trend: "近14天78篇/13.0万赞", dir: "up" },
+          { label: "核心公式", value: "🔥🔥🔥送礼反差", trend: "「拆开不想送」高频复现", dir: "up" },
+          { label: "价格心智", value: "平价高感知", trend: "10r被当贵礼物", dir: "up" }
+        ]
+      },
+      trend: {
+        lookahead: [
+          { when: "现在就上", name: "可爱萌物摆件", note: "猫/鸭/小鸟等，送礼+工位场景", heat: 3, soon: true },
+          { when: "延伸", name: "解压治愈摆件", note: "工位搭子、情绪陪伴属性", heat: 2 },
+          { when: "关注", name: "带寓意萌物", note: "蒜鸟(算了)、招财萌物等谐音梗", heat: 2 }
+        ],
+        lookback: [
+          { name: "送礼向可爱萌物", heat: 3, mom: "+高", note: "真实爆款：送朋友这只猫3.0万赞、送闺蜜1.2万赞" },
+          { name: "平价10r心理战术", heat: 3, mom: "+高", note: "「才10r却被当贵礼物」大量复现，平价反差是钩子" },
+          { name: "工位/办公解压萌物", heat: 2, mom: "+中", note: "「最适合摆工位的小东西」，办公场景稳" }
+        ],
+        themes: [
+          { name: "拆开不想送", rank: 1, hot: true, mom: "+高" },
+          { name: "可爱萌物", rank: 2, hot: true, mom: "+高" },
+          { name: "平价10r", rank: 3, hot: true, mom: "+高" },
+          { name: "送闺蜜/朋友", rank: 4, mom: "+高" },
+          { name: "工位搭子", rank: 5, mom: "+中" }
+        ],
+        themeNote: "真实数据显示：「送礼场景 + 可爱萌物 + 平价反差」是摆件方向最通用的爆款三件套。"
+      },
+      picks: {
+        items: [
+          { level: "follow", name: "可爱动物小摆件(猫/鸭/鸟)", badge: "立即跟进", metrics: [["真实热度","🔥🔥🔥"],["笔记数","78篇最多"]], note: "真实第一热度，绑 <span class='kw'>#送礼 #可爱摆件</span>，主打送朋友/闺蜜场景。" },
+          { level: "follow", name: "谐音梗寓意萌物(蒜鸟等)", badge: "立即跟进", metrics: [["真实热度","🔥🔥"],["互动","高"]], note: "「蒜鸟=算了」自带情绪梗，打工人解压刚需，转发传播强。" },
+          { level: "potential", name: "工位解压搭子", badge: "高潜布局", metrics: [["求购","🔥🔥"],["复购","稳"]], note: "「摆工位的小东西」办公场景稳定，适合做系列款拉复购。" },
+          { level: "diff", name: "带设计感的萌物摆件", badge: "差异化", metrics: [["溢价","中"],["记忆点","强"]], note: "在平价基础上加设计感，用「十几块却被当贵礼物」拉高感知价值。" }
+        ],
+        priceNote: "价位带建议：真实爆款集中在 <b>¥10 引流爆款</b>（大量「才10r」笔记），主力 ¥19–59 承接，设计感款 ¥59+ 拉客单——平价高感知是这个赛道的命门。",
+        colors: [
+          { hex: "#F5A623", name: "暖橙黄", note: "萌物治愈感主色" },
+          { hex: "#F78FB3", name: "少女粉", note: "送礼/可爱调性" },
+          { hex: "#7FB3D5", name: "清新蓝", note: "工位清爽感" },
+          { hex: "#82C99A", name: "薄荷绿", note: "解压治愈搭配" }
+        ],
+        priceBands: {
+          note: "该焦点相关带货笔记的真实成交价格带（近14天）。看「下单占比」定主流价位、「GMV占比」看利润贡献。",
+          bands: [
+            { label: "0-20元", order: 34.8, gmv: 12.1 },
+            { label: "20-50元", order: 46.7, gmv: 39.2, hot: true },
+            { label: "50-100元", order: 11.1, gmv: 20.6 },
+            { label: "100-200元", order: 5.3, gmv: 17.3 },
+            { label: "200元+", order: 2.1, gmv: 10.8 }
+          ],
+          insight: "主流成交在 <b>20-50元</b>（占46.7%下单），可爱萌物是典型平价冲动消费；20元以下也占35%，走「便宜可爱」量大。定价卡 20-50 元最稳。"
+        }
+      },
+      note: {
+        vsGood: [
+          "封面拍<b>「拆礼物瞬间」的手部特写+表情</b>：还原「拆开不想送」的真实场景",
+          "标题套<b>送礼反差公式</b>：「送朋友这只猫被夸了」「拆开就不想送闺蜜了」",
+          "正文突出<b>平价反差</b>：「才10r却被当成贵礼物」制造惊喜感",
+          "带<b>工位/桌面实拍</b>，让用户看到摆出来的样子"
+        ],
+        vsBad: [
+          "纯商品白底图，<b>没有送礼场景和情绪</b>，像电商图",
+          "标题只写「可爱小摆件」，<b>没有送礼钩子和反差</b>",
+          "不提价格，<b>丢掉「平价高感知」这个最大卖点</b>",
+          "堆一堆款式，<b>没有单品的情绪故事</b>撑不起互动"
+        ],
+        templates: [
+          { name: "送礼反差爆款体(万能公式)", heat: 3,
+            fields: [["适用商品","植绒猫盲盒/软萌小摆件"],["标题模板","「拆开瞬间就不想送＿＿了…🥲」/「怎么会有那么乖的＿＿」"],["正文结构","挑礼物场景→拆箱萌点特写→「不想送/送人变自留」反差→平价惊喜→链接"],["推荐标签",["#可爱摆件","#解压摆件","#送人变自留"]],["参考笔记","https://www.xiaohongshu.com/discovery/item/6a1d930e0000000038034156"]] },
+          { name: "工位解压共鸣体", heat: 3,
+            fields: [["适用商品","桌面解压玩具/工位摆件"],["标题模板","「谁能拒绝这么可爱的＿＿呀！」/「打工人必备」"],["正文结构","打工人情绪开头→萌物解压/静音卖点分点→工位实拍→「同事都来要链接」社交证明"],["推荐标签",["#工位摆件","#可爱摆件","#解压摆件"]],["参考笔记","https://www.xiaohongshu.com/discovery/item/68d500b4000000000e03033b"]] },
+          { name: "平价萌宠晒单体", heat: 2,
+            fields: [["适用商品","¥10-20档萌物/积木/潮玩椅"],["标题模板","「怎么会有那么乖的小猪！」/「难道不比盲盒香吗！才15r」"],["正文结构","萌点惊叹→多款式挑选展示→平价点题→大人也要玩的治愈感"],["推荐标签",["#大人也要玩玩具","#家居摆件","#平价好物"]],["参考笔记","https://www.xiaohongshu.com/discovery/item/637f3902000000001b026edb"]] }
+        ]
+      },
+      live: {
+        formats: [
+          { icon: "🎁", name: "拆礼物开箱直播", heat: "转化🔥🔥🔥", desc: "现场拆各种萌物，还原「拆开不想送」的惊喜反应，带送礼场景演示。" },
+          { icon: "💰", name: "平价爆款秒杀场", heat: "转化🔥🔥🔥", desc: "主推平价档，讲「十几块却被当贵礼物」的平价反差，低价钩子拉人气冲量。" },
+          { icon: "🙋", name: "帮你选送礼萌物连麦", heat: "停留🔥🔥", desc: "按弹幕报的对象(闺蜜/朋友/同事)现场配萌物，替用户挑送礼款。" }
+        ],
+        pallet: [
+          { role: "引流", name: "¥10 平价萌物爆款", note: "低价钩子拉人气，讲「10r像贵货」反差" },
+          { role: "承接", name: "主力送礼萌物 ¥19–59", note: "主推款，拆礼物场景+送礼演示" },
+          { role: "利润", name: "设计感萌物 ¥59+", note: "讲设计与记忆点，拉高客单" }
+        ],
+        scripts: [
+          { scene: "开场", text: "「今天全是<span class='quote'>拆开就不想送人的宝贝</span>，报一下你要送闺蜜还是同事，我帮你挑到被夸爆。」" },
+          { scene: "平价反差", text: "「你敢信这只猫<span class='quote'>才10块钱</span>？送出去全被当成贵礼物，谁收到不迷糊。」" },
+          { scene: "解压钩子", text: "「摆一个在工位上，<span class='quote'>上班再烦看一眼就治愈了</span>，打工人的快乐真的很便宜。」" }
+        ],
+        combo: [
+          { text: "<b>预告笔记</b>：发「拆礼物合集」笔记挂预约，导流直播间看更多萌物开箱。" },
+          { text: "<b>直播切片</b>：把「拆开不想送」的高光反应剪成笔记，承接「送礼可爱摆件」搜索。" },
+          { text: "<b>场景复用</b>：一次拍多只萌物的送礼场景，产出系列笔记摊薄成本。" }
+        ]
+      },
+      cadence: {
+        timeline: [
+          { day: "周一", note: "送礼灵感：可爱萌物合集铺垫", live: "" },
+          { day: "周二", note: "爆款公式：「拆开不想送」场景", live: "常态店播：平价萌物秒杀" },
+          { day: "周三", note: "平价反差：「10r像贵货」内容", live: "" },
+          { day: "周四", note: "工位解压：打工人场景款", live: "拆礼物开箱直播" },
+          { day: "周末", note: "送礼清单：按对象推荐萌物", live: "平价爆款专场" }
+        ],
+        playbookSustain: {
+          freq: "长期 · 每周 4–5 篇",
+          items: ["持续输出「送礼被夸」的真实反馈返图","可爱萌物的日常摆放/工位陪伴场景","谐音梗/情绪梗萌物的传播型内容"]
+        },
+        playbookHarvest: {
+          freq: "热度高峰 · 可提频",
+          items: ["爆款公式复制：「拆开不想送＿了」批量套用","平价钩子冲量：「才10r全款拿下」","节点借势：生日/毕业季「平价送礼」清单"],
+          warn: "「拆开不想送」公式虽万能，但要配真实萌点和场景，纯套模板无实物记忆点会疲劳。"
+        }
+      }
+    },
+    /* --- 焦点2：治愈氛围摆件（升温期） --- */
+    {
+      id: "healing", when: "高位回落", name: "氛围灯&娃娃屋·治愈微景观", icon: "🕯️",
+      lifecycle: "回落期 · 稳做基本盘", lifecycleClass: "cooling",
+      summary: {
+        stage: "回落期",
+        headline: "近14天治愈微景观<span class='hl'>头部单篇仍强(娃娃屋mini射灯5.5万赞方向第一)</span>，但<span class='hl'>加购7/4冲高后回落(-23%)</span>——氛围灯/小夜灯/娃娃屋/微景观是治愈系稳定基本盘，核心是<span class='hl'>「暖光氛围感+温馨送人」的画面即种草</span>（仿真郁金香小夜灯、氛围灯送闺蜜等），上波脉冲已过、回归常态。",
+        action: "最该抓的一件事：<b>把「暖光氛围感/温馨微景观」的画面拍到位，稳做基本盘</b>——真实爆款靠画面本身出圈（娃娃屋射灯、仿真郁金香小夜灯、氛围感送人场景），但成交已从7/4峰值回落,别指望再冲高,当稳定长效盘做。",
+        dailyCurve: { vals: [6490, 10457, 10024, 10989, 11575, 16776, 11777, 9937, 10072, 8430, 6419, 8735, 8495, 8195], peak: 16776, trend: "冲高后回落", range: "06.29~07.12", note: "7/4曾冲上1.6万峰值,但随后回落至8千/天,后7天较前7天-23%降温——上波起量脉冲已过,回归常态区间" },
+        signals: [
+          { label: "真实热度", value: "🔥🔥", trend: "近14天16篇/6.5万赞", dir: "flat" },
+          { label: "头部爆款", value: "🔥🔥🔥娃娃屋射灯", trend: "单篇居方向第一", dir: "up" },
+          { label: "成交趋势", value: "📉回落", trend: "加购-23%回归常态", dir: "down" }
+        ]
+      },
+      trend: {
+        lookahead: [
+          { when: "现在就上", name: "娃娃屋/氛围灯", note: "mini射灯、温馨微景观", heat: 3, soon: true },
+          { when: "延伸", name: "发光治愈摆件", note: "沙漏灯、梦核喷泉小灯", heat: 2 },
+          { when: "关注", name: "自然系植物摆件", note: "永生苔藓、微景观", heat: 2 }
+        ],
+        lookback: [
+          { name: "娃娃屋/mini射灯", heat: 3, mom: "+高", note: "真实头部：娃娃屋mini射灯5.5万赞，温馨感画面出圈" },
+          { name: "发光氛围摆件", heat: 3, mom: "+高", note: "发光沙漏「氛围感直接拉满」1372赞，磁吸款被1万人催" },
+          { name: "梦核/微景观小灯", heat: 2, mom: "+中", note: "梦核喷泉小灯、轻舟入梦等意境款，易出片" }
+        ],
+        themes: [
+          { name: "温馨感", rank: 1, hot: true, mom: "+高" },
+          { name: "娃娃屋", rank: 2, hot: true, mom: "+高" },
+          { name: "氛围感", rank: 3, hot: true, mom: "+高" },
+          { name: "发光/暖光", rank: 4, mom: "+高" },
+          { name: "微景观", rank: 5, mom: "+中" }
+        ],
+        themeNote: "真实数据显示：氛围灯/娃娃屋靠「暖光温馨画面」出圈，画面质感是核心流量入口。"
+      },
+      picks: {
+        items: [
+          { level: "follow", name: "治愈系氛围灯", badge: "稳做基本盘", metrics: [["求购","🔥🔥"],["供给","平稳"]], note: "回落期基本盘，绑 <span class='kw'>#氛围感 #治愈</span>，夜晚场景叙事强，稳做长效。" },
+          { level: "potential", name: "解压/陪伴系摆件", badge: "高潜布局", metrics: [["求购","🔥🔥"],["供给","偏少"]], note: "情绪共鸣空间大，绑 <span class='kw'>#解压 #打工人</span> 布局窗口。" },
+          { level: "potential", name: "微景观/苔藓瓶", badge: "高潜布局", metrics: [["求购","🔥"],["传播","强"]], note: "自然治愈差异化、易出片，适合内容种草起量。" },
+          { level: "base", name: "香薰/香氛摆件", badge: "基本盘", metrics: [["求购","🔥🔥"],["复购","高"]], note: "情绪+复购双属性，耗材复购稳基本盘。" }
+        ],
+        priceNote: "价位带建议：引流小摆件 <¥69、主力氛围灯/香薰 ¥69–199、设计款/微景观 ¥199+ 提客单。",
+        colors: [
+          { hex: "#F3E9DC", name: "奶油白", note: "松弛感主色" },
+          { hex: "#E8B4A0", name: "暖橘粉", note: "氛围灯暖光" },
+          { hex: "#2B5F4E", name: "松石绿", note: "自然治愈向" },
+          { hex: "#A9C5D6", name: "雾霾蓝", note: "安静情绪感" }
+        ],
+        priceBands: {
+          note: "该焦点相关带货笔记的真实成交价格带（近14天）。看「下单占比」定主流价位、「GMV占比」看利润贡献。",
+          bands: [
+            { label: "0-20元", order: 27.7, gmv: 5.5 },
+            { label: "20-50元", order: 28.8, gmv: 17.8 },
+            { label: "50-100元", order: 30.4, gmv: 35.6, hot: true },
+            { label: "100-200元", order: 6.8, gmv: 14.1 },
+            { label: "200元+", order: 6.4, gmv: 26.9 }
+          ],
+          insight: "氛围灯客单价是摆件里偏高的——主流 <b>50-100元</b>（30.4%下单、GMV占35.6%），画面质感撑得起溢价；100元+仍有13%量、GMV占41%，高端微景观有利润空间。"
+        }
+      },
+      note: {
+        vsGood: [
+          "封面是<b>夜晚/日常治愈场景</b>：暖光氛围一眼共情",
+          "标题带<b>情绪痛点</b>：「打工人回家看一眼就治愈」",
+          "正文讲<b>情绪价值叙事</b>：它如何抚平一天的疲惫",
+          "突出<b>光影/氛围质感</b>，画面本身即种草"
+        ],
+        vsBad: [
+          "白底硬照，<b>无氛围无情绪</b>，看不出治愈点",
+          "标题「氛围灯上新」<b>公告体</b>，无情绪钩子",
+          "只写亮度参数，<b>不讲情绪价值</b>与场景",
+          "过度精修失真，<b>削弱真实治愈感</b>"
+        ],
+        templates: [
+          { name: "送礼反差开箱体(头部爆款)", heat: 3,
+            fields: [["适用商品","小夜灯/氛围灯/娃娃屋"],["标题模板","「打开瞬间不想送人了😭」/「＿＿的温馨感！」"],["正文结构","精美开箱预告→暖光氛围画面→惊艳又不贵/治愈点题→男生礼/闺蜜礼引导"],["推荐标签",["#氛围灯小夜灯","#小夜灯","#闺蜜礼物"]],["参考笔记","https://www.xiaohongshu.com/discovery/item/659662d4000000001d025b32"]] },
+          { name: "买手店同款种草体", heat: 2,
+            fields: [["适用商品","仿真花小夜灯/氛围摆件"],["标题模板","「XX买手店同款 仿真＿＿小夜灯」/「这该死的氛围感」"],["正文结构","买手店/爆款背书→氛围光影展示→送女生绝佳礼点题→好物推荐引导"],["推荐标签",["#氛围灯","#小夜灯","#拍出氛围感"]],["参考笔记","https://www.xiaohongshu.com/discovery/item/6218fa32000000000102587f"]] },
+          { name: "微景观治愈体", heat: 2,
+            fields: [["适用商品","微景观摆件/DIY小夜灯"],["标题模板","「快艾特你闺蜜给你安排吧」/「可以当小夜灯的微景观摆件」"],["正文结构","治愈画面开头→微景观细节/DIY乐趣→氛围叙事→闺蜜互动引导"],["推荐标签",["#微景观","#氛围灯小夜灯","#手工diy"]],["参考笔记","https://www.xiaohongshu.com/discovery/item/64049d37000000001303f7cb"]] }
+        ]
+      },
+      live: {
+        formats: [
+          { icon: "🌙", name: "暗光氛围演示直播", heat: "转化🔥🔥🔥", desc: "调暗环境演示氛围灯光影效果，把「回家的治愈感」直接呈现。" },
+          { icon: "🧸", name: "解压玩法互动场", heat: "停留🔥🔥", desc: "现场演示捏捏/解压玩法，弹幕互动强，停留高。" },
+          { icon: "🪴", name: "治愈好物合集专场", heat: "转化🔥🔥", desc: "主题化推治愈系合集，成套「治愈角落」带动组合。" }
+        ],
+        pallet: [
+          { role: "引流", name: "小治愈摆件 <¥69", note: "低价钩子，讲「点亮情绪」引人气" },
+          { role: "承接", name: "主力氛围灯/香薰 ¥69–199", note: "主推款，暗光演示氛围" },
+          { role: "利润", name: "设计款/微景观 ¥199+", note: "讲设计与治愈价值，提客单" }
+        ],
+        scripts: [
+          { scene: "氛围演示", text: "「我把灯一关，你看这个光晕，<span class='quote'>整个人瞬间就松下来了</span>，这就是它的魔力。」" },
+          { scene: "情绪共鸣", text: "「买它不是买个灯，是给自己<span class='quote'>下班后一个能喘口气的角落</span>，太值了。」" },
+          { scene: "合集钩子", text: "「想布置治愈角落的，这几件<span class='quote'>一套配齐</span>，今天组合下单更划算。」" }
+        ],
+        combo: [
+          { text: "<b>预告笔记</b>：发「治愈角落布置」笔记，评论区预告直播「教你配同款」，导流预约。" },
+          { text: "<b>直播切片</b>：把「暗光氛围演示」高光剪成笔记，承接「氛围灯 治愈」长尾搜索。" },
+          { text: "<b>情绪UGC</b>：引导买家发「我的治愈角落」笔记 @店铺，情绪共鸣易传播。" }
+        ]
+      },
+      cadence: {
+        timeline: [
+          { day: "周一", note: "情绪种草：治愈叙事铺垫", live: "" },
+          { day: "周二", note: "场景实拍：夜晚氛围光", live: "常态店播：氛围灯演示" },
+          { day: "周三", note: "解压互动：玩法展示", live: "" },
+          { day: "周五", note: "合集种草：治愈角落方案", live: "治愈好物合集专场" },
+          { day: "周末", note: "UGC引导：晒治愈角落", live: "解压玩法互动场" }
+        ],
+        playbookSustain: {
+          freq: "长期 · 每周 4–5 篇",
+          items: ["店主治愈生活理念，建立情绪价值人设","持续输出不同场景的治愈布置灵感","客户「我的治愈角落」返图共鸣"]
+        },
+        playbookHarvest: {
+          freq: "回落期 · 稳定输出",
+          items: ["稳做基本盘：「今年最治愈的＿件摆件」","合集锚定：「治愈角落一套配齐」","解压共鸣：「打工人续命」钩子"],
+          warn: "回落期不追高、不猛促销，靠情绪叙事型内容稳住长效流量，把头部画面质感做扎实。"
+        }
+      }
+    },
+    /* --- 焦点3：平价手办·10r解压摆件（升温期） --- */
+    {
+      id: "fortune", when: "已退潮", name: "平价手办·解压摆件", icon: "🎖️",
+      lifecycle: "退潮期 · 观望别追高", lifecycleClass: "cooling",
+      summary: {
+        stage: "退潮期",
+        headline: "平价IP手办类解压摆件<span class='hl'>成交已退潮</span>（近14天37篇/2.7万赞，笔记还有余温但加购断崖）——7月初曾靠「仅10+的手办竟被夸高价货」的<span class='hl'>「极致平价反差」</span>脉冲爆发，但<span class='hl'>7/6起加购断崖回落（1020→几十/天）</span>，是一波短暂脉冲，非持续赛道。",
+        action: "最该抓的一件事：<b>别追高，已布局的清余货、未入场的观望</b>——这波「10r反差」内容脉冲已过（加购后7天较前7天暴跌72%），笔记还有零星热度但成交端基本熄火，此时新压货风险高，等下一波真起量信号再进。",
+        dailyCurve: { vals: [45, 48, 47, 165, 1018, 997, 1020, 515, 73, 42, 68, 35, 54, 146], peak: 1020, trend: "脉冲后回落", range: "06.29~07.12", note: "7/2起量(165)、7/3-7/5破千维持(约1000/天)后,7/6起断崖回落至几十/天,是一波短暂脉冲已退潮,后7天均值较前7天暴跌72%" },
+        signals: [
+          { label: "内容余温", value: "🔥", trend: "近14天37篇/2.7万赞", dir: "flat" },
+          { label: "成交趋势", value: "📉断崖", trend: "加购后7天-72%", dir: "down" },
+          { label: "当前建议", value: "观望", trend: "脉冲已过别追高", dir: "down" }
+        ]
+      },
+      trend: {
+        lookahead: [
+          { when: "观望", name: "平价IP手办", note: "10r反差脉冲已过,等下波起量信号", heat: 1 },
+          { when: "余温", name: "解压桌面摆件", note: "软乎手感/桌面搭子向,零星长尾", heat: 1 },
+          { when: "关注", name: "游戏同人手办", note: "第五人格等游戏IP同人,粉丝盘长尾", heat: 1 }
+        ],
+        lookback: [
+          { name: "10r平价反差款", heat: 3, mom: "-退", note: "7月初真实爆款：仅10+手办被夸高价货2965赞、克雷伯格手办9r+ 2882赞（低价内容钩子曾刷屏,现成交退潮）" },
+          { name: "桌面解压陪伴向", heat: 2, mom: "-退", note: "「才10r却被认为很贵的礼物」1752赞,送同事/摆桌面,现为长尾" },
+          { name: "游戏同人IP款", heat: 1, mom: "平", note: "第五人格同人克雷伯格手办,游戏粉丝盘小众长尾" }
+        ],
+        themes: [
+          { name: "平价手办", rank: 1, mom: "-退" },
+          { name: "10r反差梗", rank: 2, mom: "-退" },
+          { name: "桌面解压", rank: 3, mom: "平" },
+          { name: "克雷伯格IP", rank: 4, mom: "平" },
+          { name: "游戏同人", rank: 5, mom: "平" }
+        ],
+        themeNote: "真实数据显示：平价手办靠「10r却被当贵礼物」反差梗在7月初刷屏脉冲爆发,但成交端（加购）7/6起断崖回落72%,是短暂脉冲非持续赛道。当前笔记还有零星余温,成交基本熄火,建议观望不追高。"
+      },
+      picks: {
+        items: [
+          { level: "diff", name: "平价IP手办(脉冲已过)", badge: "观望", metrics: [["求购","🔥"],["趋势","↓"]], note: "「才10r却被当贵礼物」7月初反差爆款已退潮,加购断崖回落。已布局的清余货,未入场的观望,别在脉冲末期压货。" },
+          { level: "base", name: "桌面解压小摆件", badge: "长尾基本盘", metrics: [["求购","🔥"],["复购","稳"]], note: "软乎手感/小巧不占地,打工人午休解压长尾刚需,绑 <span class='kw'>#午休放松 #宿舍神器</span> 细水长流不指望爆。" },
+          { level: "diff", name: "游戏同人IP手办", badge: "小众长尾", metrics: [["热度","🔥"],["粉丝","强"]], note: "第五人格同人克雷伯格手办,游戏/同人IP粉丝盘小众复购,非走量项。" }
+        ],
+        priceNote: "价位带参考(据真实成交)：脉冲期真实成交主力是 <b>¥20–50</b>(99%下单)、10r/9r 是<b>内容反差引流钩子</b>非成交价。<b>但当前成交已退潮</b>,若仍要做,主力货铺 20-50 元,控量别压货。",
+        colors: [
+          { hex: "#F5A623", name: "平价金", note: "「10r超值」反差主色" },
+          { hex: "#C0392B", name: "热血红", note: "IP/游戏同人热度感" },
+          { hex: "#5B8C6E", name: "解压绿", note: "午休解压治愈氛围" },
+          { hex: "#4A5D6E", name: "桌面灰", note: "桌面摆件质感底色" }
+        ],
+        priceBands: {
+          note: "该焦点相关带货笔记的真实成交价格带（近14天）。看「下单占比」定主流价位、「GMV占比」看利润贡献。⚠️注意该焦点成交已退潮,样本量小(近14天仅361单)。",
+          bands: [
+            { label: "0-20元", order: 0.8, gmv: 0.4 },
+            { label: "20-50元", order: 99.2, gmv: 99.6, hot: true },
+            { label: "50-100元", order: 0.0, gmv: 0.0 },
+            { label: "100-200元", order: 0.0, gmv: 0.0 },
+            { label: "200元+", order: 0.0, gmv: 0.0 }
+          ],
+          insight: "脉冲期真实成交极度集中在 <b>20-50元</b>（99%下单）——<b>「10r」是内容引流钩子（做爆款笔记赚曝光），不是成交主力价</b>。但<b>当前该焦点成交已退潮</b>(近14天仅361单),数据仅供复盘参考,不建议此时追高压货。"
+        }
+      },
+      note: {
+        vsGood: [
+          "封面直给<b>「平价却被当贵礼物」反差</b>：晒收到反应最抓眼",
+          "标题带<b>价格锚点</b>：「才10r。。。却被当成珍贵礼物」引围观",
+          "突出<b>桌面解压/陪伴</b>：软乎手感、午休搭子、摆桌面场景",
+          "游戏同人款绑<b>IP/剧情叙事</b>，唤醒粉丝收集欲"
+        ],
+        vsBad: [
+          "封面只摆商品图，<b>无反差无场景</b>，激不起冲动",
+          "标题「手办上新」<b>公告体</b>，无价格反差钩子",
+          "只报价格<b>不讲解压/陪伴情绪</b>，同质难突围",
+          "同人款无IP叙事，<b>沦为普通小摆件</b>难突围"
+        ],
+        templates: [
+          { name: "10r平价反差体(脉冲期打法参考)", heat: 2,
+            fields: [["适用商品","平价手办(10r反差钩子款+20-50元主力款)"],["标题模板","「仅10+的手办，竟被夸成高价货」/「才10r。。。却被认为是很贵的礼物」"],["正文结构","挑手办踩坑痛点→揭晓9r/10r低价钩子→做工精细/软乎手感→送同事/摆桌面场景→主力款20-50元性价比引导"],["推荐标签",["#解压玩具","#桌面摆件","#午休放松"]],["参考笔记","https://www.xiaohongshu.com/discovery/item/6a46e19400000000060340c5"]] },
+          { name: "平价晒单信任体", heat: 2,
+            fields: [["适用商品","平价桌面手办/解压小摆件(20-50元档)"],["标题模板","「9r！9r！9r！＿＿手办速看」/「＿＿手办售万单啦」"],["正文结构","价格三连/销量背书钩子→小巧精致不占地→桌面搭子陪伴感→感恩老粉复购引导"],["推荐标签",["#解压玩具","#晒晒我的桌面","#宿舍神器"]],["参考笔记","https://www.xiaohongshu.com/discovery/item/6a4683d9000000001603e3d1"]] },
+          { name: "游戏同人IP体", heat: 1,
+            fields: [["适用商品","游戏IP同人手办/摆件"],["标题模板","「＿＿(游戏名)同人＿＿手办上线了」"],["正文结构","游戏/IP共鸣开头→同人手办还原度→宿舍/桌面摆件场景→游戏同人话题铺量"],["推荐标签",["#游戏同人","#手办","#桌面摆件"]],["参考笔记","https://www.xiaohongshu.com/discovery/item/6a453d70000000002201764a"]] }
+        ]
+      },
+      live: {
+        formats: [
+          { icon: "🎁", name: "平价捡漏冲动场", heat: "转化🔥", desc: "脉冲期打法：现场晒「才10r却被当贵礼物」反差。⚠️现成交已退潮,谨慎排期。" },
+          { icon: "🧸", name: "桌面解压体验场", heat: "停留🔥", desc: "上手演示软乎手感/桌面搭子,午休解压场景带入,长尾稳流。" },
+          { icon: "🎮", name: "游戏同人专场", heat: "复购🔥", desc: "第五人格等游戏IP同人手办,粉丝盘同好小众复购。" }
+        ],
+        pallet: [
+          { role: "引流", name: "平价手办 ¥9–18", note: "10r反差钩子(脉冲期打法),现成交退潮谨慎用" },
+          { role: "承接", name: "主力解压摆件 ¥20–50", note: "脉冲期真实成交主力(99%),现控量别压货" },
+          { role: "利润", name: "IP同人/礼盒款 ¥50+", note: "讲IP剧情/送礼场景,小众拉客单" }
+        ],
+        scripts: [
+          { scene: "平价反差", text: "「就这个手办，才10r，<span class='quote'>我朋友收到以为我花了大几十</span>，平价也能送得体面。」" },
+          { scene: "解压陪伴", text: "「摸起来软乎乎的，<span class='quote'>放工位上午休看一眼就治愈</span>，打工人的桌面小搭子。」" },
+          { scene: "同人钩子", text: "「第五人格的家人们冲，<span class='quote'>这只克雷伯格同人手办还原度拉满</span>，喜欢的懂的都懂。」" }
+        ],
+        combo: [
+          { text: "<b>预告笔记</b>：发「10r手办开箱反应」笔记，评论区预告直播「更多平价捡漏」，导流预约。" },
+          { text: "<b>直播切片</b>：把「平价反差/桌面解压」剪成笔记，承接「平价手办 解压摆件」搜索。" },
+          { text: "<b>同好UGC</b>：引导粉丝晒「桌面手办搭子」@店铺，解压氛围带复购。" }
+        ]
+      },
+      cadence: {
+        timeline: [
+          { day: "工作日", note: "解压长尾种草：软乎手感/午休搭子", live: "" },
+          { day: "周三", note: "解压场景：午休桌面搭子", live: "" },
+          { day: "周五", note: "游戏同人：IP还原度种草", live: "" },
+          { day: "周末", note: "游戏同人：粉丝盘复购", live: "游戏同人专场" },
+          { day: "上新", note: "谨慎排期,观察成交是否回暖", live: "" }
+        ],
+        playbookSustain: {
+          freq: "退潮期 · 降频观望 · 每周 1–2 篇",
+          items: ["10r反差脉冲已过,降频不追高","桌面解压/午休陪伴长尾场景维持基本盘","游戏同人粉丝盘小众复购沉淀,等下波起量信号"]
+        },
+        playbookHarvest: {
+          freq: "观察成交回暖再提频",
+          items: ["清余货：已压的平价手办折价走量","长尾维持：桌面解压午休搭子稳流","观察信号：加购曲线回升再考虑重新压货"],
+          warn: "该焦点成交已退潮(加购-72%),脉冲末期切勿追高压货;10r反差是内容钩子非持续赛道,等真实起量信号再进场。"
+        }
+      }
+    }
+  ]
+});
+
+/* ---------- 方向三：潮玩（焦点轴 = IP/系列热度 + 生命周期） ---------- */
+DASHBOARD_DATA.directions.push({
+  key: "toy",
+  emoji: "🧸",
+  name: "潮玩",
+  focusAxis: { label: "IP / 系列热度", hint: "按热度生命周期排列，标注升温/高峰/见顶，帮你判断追不追高" },
+  focuses: [
+    /* --- 焦点1：搪胶毛绒·顶流IP（高峰期） --- */
+    {
+      id: "plush", when: "顶流", name: "IP盲盒&手办模型", icon: "🎁", soon: true,
+      lifecycle: "高峰期 · 全力跟进", lifecycleClass: "peak",
+      summary: {
+        stage: "高峰期",
+        headline: "近14天潮玩<span class='hl'>最热就是IP盲盒&手办模型</span>（71篇/11.2万赞）——扭蛋/福利盲盒/毛绒盲盒全线爆，核心打法是<span class='hl'>「10r一箱平价冲动 + 拆盒福利」</span>。",
+        action: "最该抓的一件事：<b>做「平价捡漏+拆盒福利」内容</b>——真实爆款靠「10r一箱」「5.99扭蛋按扣包」「瑕疵盲盒9.9半斤装」的极致平价冲动带量，拆袋随机的惊喜感是钩子。",
+        dailyCurve: { vals: [64031, 63278, 72809, 81028, 75053, 89288, 88369, 82865, 84456, 86434, 75358, 68515, 67819, 65100], peak: 89288, trend: "高位平稳", range: "06.29~07.12", note: "大盘稳居6-9万/天,7/4冲上8.9万峰值后小幅回落,后7天与前7天基本持平(-1%),顶流盘高位稳定" },
+        signals: [
+          { label: "真实热度", value: "🔥🔥🔥", trend: "近14天71篇/11.2万赞居潮玩第一", dir: "up" },
+          { label: "核心公式", value: "🔥🔥🔥平价冲动", trend: "「10r一箱」福利款高频", dir: "up" },
+          { label: "衍生机会", value: "扭蛋/毛绒盲盒", trend: "IP联名持续上新", dir: "up" }
+        ]
+      },
+      trend: {
+        lookahead: [
+          { when: "现在就上", name: "平价福利盲盒", note: "10r一箱、扭蛋按扣包、瑕疵福利", heat: 3, soon: true },
+          { when: "延伸", name: "毛绒/粉扑盲盒", note: "粉扑盲盒18.8等软萌盲盒", heat: 2 },
+          { when: "关注", name: "拼装模型/平价手办", note: "18块盒装模型等平价拼装", heat: 2 }
+        ],
+        lookback: [
+          { name: "10r一箱平价冲动款", heat: 3, mom: "+高", note: "真实爆款：「椰椰才10r一箱」4810赞、「10r一箱会有谁不喜欢」4297赞，极致平价冲动带量" },
+          { name: "扭蛋/按扣包福利款", heat: 3, mom: "+高", note: "「5.99扭蛋按扣包+绿箭毛毡本」6586赞居第一、「3r+一个包邮」5997赞，平价锚点+组合福利" },
+          { name: "瑕疵福利盲盒", heat: 2, mom: "+中", note: "「瑕疵盲盒9.9半斤装」4473赞，按重量发的清仓福利拉冲动" }
+        ],
+        themes: [
+          { name: "10r一箱", rank: 1, hot: true, mom: "+高" },
+          { name: "平价扭蛋", rank: 2, hot: true, mom: "+高" },
+          { name: "拆盒福利", rank: 3, hot: true, mom: "+高" },
+          { name: "毛绒/粉扑盲盒", rank: 4, mom: "+中" },
+          { name: "平价拼装模型", rank: 5, mom: "+中" }
+        ],
+        themeNote: "真实数据显示：「10r一箱平价冲动 + 拆盒福利」是本周潮玩盲盒的核心爆款公式，扭蛋/瑕疵福利款是引流利器。"
+      },
+      picks: {
+        items: [
+          { level: "follow", name: "顶流IP当季新款", badge: "立即跟进", metrics: [["求购","🔥🔥🔥"],["竞争","高"]], note: "跟发售首发，绑 <span class='kw'>#盲盒 #隐藏款</span>，抢首发流量红利。" },
+          { level: "follow", name: "娃衣/穿搭配件", badge: "立即跟进", metrics: [["求购","🔥🔥🔥"],["复购","高"]], note: "衍生穿搭高复购，绑 <span class='kw'>#娃衣 #穿搭</span>，社交传播强。" },
+          { level: "potential", name: "出街挂件/痛包配件", badge: "高潜布局", metrics: [["求购","🔥🔥"],["供给","偏少"]], note: "出街晒单场景，绑 <span class='kw'>#挂件 #痛包</span> 布局衍生。" },
+          { level: "diff", name: "限量/联名款", badge: "差异化", metrics: [["求购","🔥"],["溢价","高"]], note: "稀缺拉溢价，首发抽取+限量话术做高客单。" }
+        ],
+        priceNote: "货盘逻辑：引流单盒/挂件拉人气 → 隐藏款/限量留人 → 端盒+娃衣组合拉客单利润。",
+        colors: [
+          { hex: "#FF2442", name: "活力红", note: "顶流IP首发主视觉" },
+          { hex: "#F5A623", name: "潮玩橙", note: "拆盒惊喜感" },
+          { hex: "#7B5EA7", name: "梦幻紫", note: "限定/梦幻系列" },
+          { hex: "#F5B7C4", name: "少女粉", note: "娃衣穿搭女性向" }
+        ],
+        priceBands: {
+          note: "该焦点相关带货笔记的真实成交价格带（近14天）。看「下单占比」定主流价位、「GMV占比」看利润贡献。",
+          bands: [
+            { label: "0-20元", order: 40.1, gmv: 22.2 },
+            { label: "20-50元", order: 43.8, gmv: 43.3, hot: true },
+            { label: "50-100元", order: 11.1, gmv: 15.8 },
+            { label: "100-200元", order: 2.7, gmv: 7.1 },
+            { label: "200元+", order: 2.3, gmv: 11.6 }
+          ],
+          insight: "盲盒/IP手办主流 <b>20-50元</b>（43.8%下单），单端/平价款走量；0-20元也占40%（拆袋盲盒）。50元+靠隐藏款/大娃拉客单（GMV占35%）。"
+        }
+      },
+      note: {
+        vsGood: [
+          "封面抓<b>拆盒瞬间/隐藏款</b>：抽中的惊喜表情最抓眼",
+          "标题带<b>IP名+隐藏钩子</b>：「拆了＿盒终于出隐藏」制造好奇",
+          "正文有<b>真实拆盒过程+晒娃</b>，社交感强",
+          "娃衣穿搭/出街挂件<b>衍生玩法</b>，激发模仿互动"
+        ],
+        vsBad: [
+          "封面只摆盒子正面，<b>无拆盒无情绪</b>，没惊喜感",
+          "标题「盲盒上新」<b>无IP无钩子</b>，粉丝搜不到",
+          "只报价格款式，<b>无拆盒过程</b>，社交属性为零",
+          "盗图/官方图硬发，<b>无真实感</b>，粉丝不买账"
+        ],
+        templates: [
+          { name: "新品上新预告体(核心)", heat: 3,
+            fields: [["适用商品","水晶盲盒/治愈系盲盒"],["标题模板","「＿＿盲盒上新啦～」/「XX狂推的＿＿-治愈」"],["正文结构","感谢老粉/上新预告→款式色系逐个展示→治愈/可当扩香石等附加卖点→上新引导"],["推荐标签",["#盲盒","#大人也要玩玩具","#我的盲盒分享"]],["参考笔记","https://www.xiaohongshu.com/discovery/item/6822f8560000000023010889"]] },
+          { name: "限定惊喜盲盒福利体", heat: 3,
+            fields: [["适用商品","限定/季节惊喜盲盒"],["标题模板","「秋季限定惊喜盲盒福利」/「＿＿限定盲盒手慢无」"],["正文结构","限定钩子开头→惊喜款式展示→福利价/数量有限→冲动下单引导"],["推荐标签",["#盲盒","#限定盲盒","#惊喜盲盒"]],["参考笔记","https://www.xiaohongshu.com/discovery/item/64e70279000000000103d70c"]] },
+          { name: "瑕疵福利清仓体", heat: 2,
+            fields: [["适用商品","瑕疵盲盒/清仓福利款"],["标题模板","「瑕疵盲盒9.9｜半斤装纯福利！能接受再拍🙏」"],["正文结构","老粉专属福利钩子→按重量发/不挑款规则→「介意勿拍」真诚话术→限时冲动引导"],["推荐标签",["#清仓盲盒","#解压玩具","#大人也要玩玩具"]],["参考笔记","https://www.xiaohongshu.com/discovery/item/6a230844000000003503141b"]] }
+        ]
+      },
+      live: {
+        formats: [
+          { icon: "📦", name: "拆盒开盒直播", heat: "转化🔥🔥🔥", desc: "现场拆盒抽隐藏，惊喜感最强，配合「帮拆/代抽」互动冲转化。" },
+          { icon: "✨", name: "新款首发专场", heat: "转化🔥🔥🔥", desc: "跟发售首发直播，限量先到先得，制造抢购紧迫感。" },
+          { icon: "👗", name: "娃衣穿搭互动场", heat: "停留🔥🔥🔥", desc: "现场给娃换装搭配，弹幕点款互动，停留与复购双高。" }
+        ],
+        pallet: [
+          { role: "引流", name: "顶流IP单盒/挂件", note: "低价钩子拉人气，现场拆盒造惊喜" },
+          { role: "留人", name: "隐藏款/限量款", note: "稀缺抽取留人，制造互动高潮" },
+          { role: "利润", name: "端盒+娃衣组合", note: "端盒+穿搭组合，拉高客单利润" }
+        ],
+        scripts: [
+          { scene: "拆盒造势", text: "「来这盒现场拆，<span class='quote'>看看今天欧不欧</span>，抽中隐藏的话再宠粉加送娃衣！」" },
+          { scene: "稀缺逼单", text: "「这个限定<span class='quote'>全网就这一批</span>，卖完官方不补，手慢只能去二级加价了。」" },
+          { scene: "组合钩子", text: "「单盒看运气，<span class='quote'>端盒必出隐藏</span>，今天端盒还送整套娃衣，凑套的冲。」" }
+        ],
+        combo: [
+          { text: "<b>预告笔记</b>：发售前发「今晚拆＿＿」预告挂预约，把粉丝蓄进直播间。" },
+          { text: "<b>直播切片</b>：把「抽中隐藏」高光剪成笔记，惊喜感强易爆，反哺涨粉。" },
+          { text: "<b>晒单UGC</b>：引导买家发拆盒/穿搭笔记 @店铺，社交裂变承接搜索。" }
+        ]
+      },
+      cadence: {
+        timeline: [
+          { day: "工作日", note: "日常高频：拆盒/晒娃种草", live: "常态拆盒直播" },
+          { day: "发售日", note: "首发冲刺：新款拆盒抢先", live: "新款首发专场" },
+          { day: "周三", note: "衍生玩法：娃衣穿搭教程", live: "" },
+          { day: "周五", note: "周末预热：专场预告", live: "隐藏款抽取专场" },
+          { day: "周末", note: "晒单互动：同好UGC引导", live: "娃衣穿搭互动场" }
+        ],
+        playbookSustain: {
+          freq: "长期 · 可高频每日 1+ 篇",
+          items: ["店主玩家人设，分享收藏/穿搭建立同好信任","拆盒/娃衣/挂件持续输出，喂社交传播","跟IP动态、发售日历做内容日常化"]
+        },
+        playbookHarvest: {
+          freq: "发售节点 · 高频冲刺",
+          items: ["首发抢跑：「＿＿今日发售，手慢无」","稀缺逼单：「限量/隐藏全网仅此批」","组合钩子：「端盒必出+娃衣福利」"],
+          warn: "高峰可高频，但纯逼单别刷屏；拆盒过程与真实惊喜感才是不掉流量的关键。"
+        }
+      }
+    },
+    /* --- 焦点2：谷子&吧唧痛包·IP周边（高峰期） --- */
+    {
+      id: "brick", when: "正当红", name: "谷子&吧唧痛包·IP周边", icon: "🏷️",
+      lifecycle: "高峰期 · 全力跟进", lifecycleClass: "peak",
+      summary: {
+        stage: "高峰期",
+        headline: "谷子/吧唧/痛包类IP周边<span class='hl'>热度极高</span>（42篇/5.7万赞）——收卡卡砖、痛包晒单、谷美全线火，核心是<span class='hl'>「二次元同好文化 + 自担/本命」情绪</span>。",
+        action: "最该抓的一件事：<b>紧跟热门IP做收卡/痛包内容</b>——真实爆款围绕「收卡的快乐」「痛包炫自担」情绪（卡砖放卡展示、古早味痛包），同好圈层传播极强。",
+        dailyCurve: { vals: [107846, 107867, 109456, 106002, 105980, 118179, 113469, 102805, 106911, 103952, 101553, 106971, 115102, 118661], peak: 118661, trend: "高位平稳", range: "06.29~07.12", note: "最大盘约11万/天,高位平稳,末日冲上11.9万,谷子痛包稳定刚需" },
+        signals: [
+          { label: "真实热度", value: "🔥🔥🔥", trend: "近14天42篇/5.7万赞", dir: "up" },
+          { label: "核心情绪", value: "🔥🔥🔥自担本命", trend: "谷美炫耀+同好共鸣", dir: "up" },
+          { label: "衍生机会", value: "吧唧/痛包配件", trend: "无料背卡/痛箱晒单", dir: "up" }
+        ]
+      },
+      trend: {
+        lookahead: [
+          { when: "现在就上", name: "热门IP谷美", note: "跟IP热度上谷子", heat: 3, soon: true },
+          { when: "延伸", name: "痛包/痛箱配件", note: "自担炫耀、出街晒单", heat: 3 },
+          { when: "关注", name: "吧唧无料/背卡", note: "百搭吧唧、无料收集向", heat: 2 }
+        ],
+        lookback: [
+          { name: "收卡/卡砖收集", heat: 3, mom: "+高", note: "真实爆款：「百合诗篇卡砖五色放卡展示」3404赞、「追星人收卡的快乐谁懂」2508赞，收集展示向传播强" },
+          { name: "痛包/痛箱炫自担", heat: 3, mom: "+高", note: "「古早味痛包」1785赞、「神降痛包展示」1581赞，痛包晒单自担情绪强传播" },
+          { name: "热门IP谷美/无料", heat: 2, mom: "+中", note: "「谷美让我推从画里走出来」1386赞、「百搭吧唧无料背卡get」1342赞，我推情绪+收集向配件" }
+        ],
+        themes: [
+          { name: "谷美", rank: 1, hot: true, mom: "+高" },
+          { name: "自担/本命", rank: 2, hot: true, mom: "+高" },
+          { name: "痛包痛箱", rank: 3, hot: true, mom: "+高" },
+          { name: "吧唧色纸", rank: 4, mom: "+高" },
+          { name: "无料背卡", rank: 5, mom: "+中" }
+        ],
+        themeNote: "真实数据显示：谷子圈靠「自担/本命」情绪驱动，谷美炫耀+痛包晒单是同好圈层的核心传播公式。"
+      },
+      picks: {
+        items: [
+          { level: "follow", name: "热门IP谷美/吧唧", badge: "立即跟进", metrics: [["求购","🔥🔥🔥"],["情绪","强"]], note: "升温主力，绑 <span class='kw'>#谷美 #吧唧</span>，「我推」自担情绪带传播。" },
+          { level: "potential", name: "痛包/痛箱配件", badge: "高潜布局", metrics: [["求购","🔥🔥"],["晒单","强"]], note: "自担炫耀晒单场景，绑 <span class='kw'>#痛包 #痛箱</span> 布局衍生配件。" },
+          { level: "base", name: "吧唧无料/背卡收集款", badge: "基本盘", metrics: [["求购","🔥🔥"],["复购","高"]], note: "百搭吧唧、无料背卡收集刚需，绑 <span class='kw'>#吧唧 #无料</span> 稳复购。" },
+          { level: "diff", name: "稀有/绝版谷子", badge: "差异化", metrics: [["求购","🔥"],["溢价","高"]], note: "本命绝版/稀有谷差异化，讲稀缺与收藏价值做高客单。" }
+        ],
+        priceNote: "价位带参考(据真实爆款)：平价吧唧/无料 ¥1–19 引流(1r甩卖谷也爆)、谷美/色纸 ¥19–99 承接、痛包/稀有谷 ¥99+ 拉客单。",
+        colors: [
+          { hex: "#E8452E", name: "我推红", note: "本命角色应援感" },
+          { hex: "#8B5CF6", name: "二次元紫", note: "谷美梦幻氛围" },
+          { hex: "#F5A623", name: "痛包金", note: "自担炫耀感" },
+          { hex: "#4AA5D9", name: "同好蓝", note: "收集/圈层氛围" }
+        ],
+        priceBands: {
+          note: "该焦点相关带货笔记的真实成交价格带（近14天）。看「下单占比」定主流价位、「GMV占比」看利润贡献。",
+          bands: [
+            { label: "0-20元", order: 46.0, gmv: 24.6, hot: true },
+            { label: "20-50元", order: 36.5, gmv: 34.4 },
+            { label: "50-100元", order: 12.0, gmv: 21.2 },
+            { label: "100-200元", order: 4.6, gmv: 14.8 },
+            { label: "200元+", order: 0.9, gmv: 5.0 }
+          ],
+          insight: "谷子痛包是最低价品类——<b>0-20元</b>（46.0%）+ 20-50元（36.5%）合计占83%下单，吧唧/色纸小件为主。走的是「高频低价复购」逻辑。"
+        }
+      },
+      note: {
+        vsGood: [
+          "封面抓<b>谷美/痛包美图</b>：本命角色的谷美画面最抓眼",
+          "标题带<b>「我推/本命」情感</b>：「谁懂这谷美让我推从画里走出来」",
+          "正文有<b>谷美细节+自担情绪</b>，同好代入感强",
+          "痛包款突出<b>自担炫耀</b>，激发同好共鸣晒单"
+        ],
+        vsBad: [
+          "封面只摆单品图，<b>无美图无情感</b>，激不起「我推」共鸣",
+          "标题「谷子上新」<b>公告体</b>，无角色情感钩子",
+          "只报款式，<b>无自担无本命叙事</b>，同好无感",
+          "对IP无理解，<b>用错角色/CP</b>易翻车得罪同好"
+        ],
+        templates: [
+          { name: "痛包玩梗诱捕体(核心)", heat: 3,
+            fields: [["适用商品","痛包/原创设计痛包"],["标题模板","「🆕新型二次元诱捕器!」/「XX真的很难不跟上去看看」"],["正文结构","出街被诱捕的共鸣钩子→原创设计/款式展示→同好情绪→原创设计标签铺量"],["推荐标签",["#痛包","#DRDR原创设计","#痛包展示"]],["参考笔记","https://www.xiaohongshu.com/discovery/item/65d718ec000000000b00c978"]] },
+          { name: "痛包合集种草体", heat: 3,
+            fields: [["适用商品","学院风/糖果色痛包"],["标题模板","「适合春夏的＿＿风糖果色双肩痛包合集～」"],["正文结构","季节/风格切入→多款合集展示→美貌炫耀→痛包安利话题铺量"],["推荐标签",["#痛包","#痛包分享","#痛包推荐"]],["参考笔记","https://www.xiaohongshu.com/discovery/item/662f8f57000000001e019087"]] },
+          { name: "官方谷子上新体", heat: 2,
+            fields: [["适用商品","官方授权谷子/亚克力周边"],["标题模板","「《＿＿》官方授权谷子周边上新！」"],["正文结构","官方授权背书→周边清单(挂件盲盒/立牌/CD挂件)→陆续上新预告→吃谷话题引导"],["推荐标签",["#谷子","#吃谷日常","#二次元"]],["参考笔记","https://www.xiaohongshu.com/discovery/item/66c7f370000000001d03b98c"]] }
+        ]
+      },
+      live: {
+        formats: [
+          { icon: "🎴", name: "谷美鉴赏晒单直播", heat: "转化🔥🔥🔥", desc: "逐款展示谷美/吧唧，讲「我推」故事与自担情绪，同好转化强。" },
+          { icon: "💗", name: "痛包搭配陪聊场", heat: "停留🔥🔥", desc: "边搭痛包边聊自担，同好情绪共鸣，氛围拉停留。" },
+          { icon: "✨", name: "稀有谷/绝版专场", heat: "客单🔥🔥", desc: "本命稀有/绝版谷专场，讲稀缺与收藏价值，拉高客单。" }
+        ],
+        pallet: [
+          { role: "引流", name: "平价吧唧/无料 ¥1–19", note: "低价钩子，讲「我推」情感引同好" },
+          { role: "承接", name: "谷美/色纸 ¥19–99", note: "主推款，讲角色故事与自担情绪" },
+          { role: "利润", name: "痛包/稀有谷 ¥99+", note: "讲稀缺与本命收藏，拉高客单" }
+        ],
+        scripts: [
+          { scene: "我推情绪", text: "「谁懂啊，这个谷美一出来，<span class='quote'>我推直接从画里走出来了</span>，同担的姐妹一定懂这种破防。」" },
+          { scene: "自担钩子", text: "「把本命的谷都收齐做成痛包，<span class='quote'>出街谁看了都得夸自担美貌</span>，冲一个不亏。」" },
+          { scene: "稀有带货", text: "「这个是绝版谷了，<span class='quote'>断货真的不补</span>，本命的家人们别犹豫，错过等二级溢价。」" }
+        ],
+        combo: [
+          { text: "<b>预告笔记</b>：发「谷美/痛包美图」笔记，评论区预告直播「一起晒自担」，导流预约。" },
+          { text: "<b>直播切片</b>：把「谷美鉴赏/痛包搭配」剪成笔记，承接「＿＿谷美 痛包」长尾搜索。" },
+          { text: "<b>同好UGC</b>：引导同好发「我的自担痛包」笔记 @店铺，圈层氛围带传播。" }
+        ]
+      },
+      cadence: {
+        timeline: [
+          { day: "工作日", note: "日常种草：谷美/吧唧美图", live: "常态谷美鉴赏直播" },
+          { day: "周三", note: "痛包搭配：自担晒单展示", live: "" },
+          { day: "周五", note: "热门IP谷：新谷跟进种草", live: "痛包搭配陪聊场" },
+          { day: "周末", note: "我推互动：同担共鸣UGC", live: "稀有谷/绝版专场" },
+          { day: "新IP", note: "热门IP新谷第一时间跟进", live: "" }
+        ],
+        playbookSustain: {
+          freq: "长期 · 每周 4–5 篇",
+          items: ["店主二次元同好人设，建立「我推」情感信任","谷美鉴赏、痛包搭配持续输出","同好自担返图、痛包晒单沉淀圈层"]
+        },
+        playbookHarvest: {
+          freq: "热门IP新谷节点 · 可提频",
+          items: ["新谷锚定：「本命新谷第一波」跟进钩子","自担催单：「本命断货不补」","稀有绝版谷+痛包组合钩子"],
+          warn: "谷圈重情感与IP理解，别用错角色/CP得罪同好；自担/我推情感内容才是长效流量。"
+        }
+      }
+    },
+    /* --- 焦点3：乙游造景&谷美·场景潮玩（升温期） --- */
+    {
+      id: "classic", when: "小众稳定", name: "乙游造景&谷美·场景潮玩", icon: "🎨",
+      lifecycle: "稳定期 · 小众基本盘", lifecycleClass: "stable",
+      summary: {
+        stage: "稳定期",
+        headline: "乙游造景/谷美类场景潮玩<span class='hl'>稳定小众盘</span>（近14天12篇/2.0万赞）——艺术馆谷美、乙游甜品店造景、色纸补货有稳定受众，核心是<span class='hl'>「乙女游戏『我推』情感 + 造景美学」</span>。",
+        action: "最该抓的一件事：<b>把谷美/造景拍出「艺术馆级」美学</b>——真实头部「艺术馆谷美让我推成为传世之作」2496赞，靠画面美学+「我推」情感共鸣在乙游同好圈层强传播。",
+        dailyCurve: { vals: [21512, 19442, 19588, 18843, 19224, 18200, 18119, 17750, 17010, 16649, 16758, 20665, 21277, 21068], peak: 21512, trend: "平稳", range: "06.29~07.12", note: "约2万/天平稳,乙游造景稳定小众盘,末段回升至2.1万,无剧烈波动" },
+        signals: [
+          { label: "真实热度", value: "🔥🔥", trend: "近14天12篇/2.0万赞", dir: "flat" },
+          { label: "核心情感", value: "🔥🔥我推/本命", trend: "乙游角色情感驱动", dir: "up" },
+          { label: "美学机会", value: "造景/谷美美学", trend: "艺术馆级画面出圈", dir: "up" }
+        ]
+      },
+      trend: {
+        lookahead: [
+          { when: "现在就上", name: "热门乙游谷美/色纸", note: "跟乙游IP热度上谷美", heat: 3, soon: true },
+          { when: "延伸", name: "角色甜品店造景", note: "秦彻/沈星回甜品店造景贴纸", heat: 3 },
+          { when: "关注", name: "宫灯/场景实拍周边", note: "回信宫灯等造景实拍向", heat: 2 }
+        ],
+        lookback: [
+          { name: "艺术馆级谷美", heat: 3, mom: "+高", note: "真实爆款：「艺术馆谷美让我推成为传世之作」2496赞，美学画面强出圈" },
+          { name: "乙游色纸/余量补货", heat: 3, mom: "+高", note: "冬日昼回余量掉落2729赞、色纸补货1812赞，补货即抢" },
+          { name: "角色甜品店造景", heat: 2, mom: "+中", note: "苹果甜品店1916赞、蹲蹲秦彻甜品店1481赞，场景造景吃「我推」情感" }
+        ],
+        themes: [
+          { name: "乙游谷美", rank: 1, hot: true, mom: "+高" },
+          { name: "我推/本命情感", rank: 2, hot: true, mom: "+高" },
+          { name: "造景场景", rank: 3, hot: true, mom: "+高" },
+          { name: "色纸/余量补货", rank: 4, mom: "+高" },
+          { name: "美学画面", rank: 5, mom: "+中" }
+        ],
+        themeNote: "真实数据显示：乙游谷美靠「我推情感+艺术馆级美学」驱动，造景/色纸补货即抢，是乙女同好圈层的核心传播公式。"
+      },
+      picks: {
+        items: [
+          { level: "follow", name: "热门乙游谷美/色纸", badge: "立即跟进", metrics: [["求购","🔥🔥🔥"],["情感","强"]], note: "跟热门乙游(恋与/未定等)IP出谷美，绑 <span class='kw'>#谷美 #乙游</span>，「我推」情感驱动传播。" },
+          { level: "potential", name: "角色甜品店/场景造景", badge: "高潜布局", metrics: [["热度","🔥🔥"],["美学","强"]], note: "秦彻/沈星回甜品店造景贴纸，绑 <span class='kw'>#造景 #乙游</span> 做场景美学差异化。" },
+          { level: "base", name: "色纸/余量补货款", badge: "基本盘", metrics: [["求购","🔥🔥🔥"],["复购","高"]], note: "冬日昼回等色纸「补货即抢」，绑 <span class='kw'>#色纸 #补货</span>，同好刚需稳复购。" },
+          { level: "diff", name: "宫灯/实拍高美学周边", badge: "差异化", metrics: [["热度","🔥"],["客单","中高"]], note: "回信宫灯等造景实拍款，讲美学氛围做高客单差异化。" }
+        ],
+        priceNote: "价位带参考(据真实爆款)：平价色纸/纸片 ¥1–19 引流(1r甩卖谷也爆)、谷美/造景贴纸 ¥19–99 承接、宫灯/高美学造景 ¥99+ 拉客单。",
+        colors: [
+          { hex: "#8B5CF6", name: "乙游紫", note: "乙女游戏梦幻主色" },
+          { hex: "#E8452E", name: "我推红", note: "本命角色应援感" },
+          { hex: "#4AA5D9", name: "造景蓝", note: "场景美学氛围" },
+          { hex: "#F5A623", name: "暖金", note: "甜品店/温馨造景" }
+        ],
+        priceBands: {
+          note: "该焦点相关带货笔记的真实成交价格带（近14天）。看「下单占比」定主流价位、「GMV占比」看利润贡献。",
+          bands: [
+            { label: "0-20元", order: 54.9, gmv: 40.2, hot: true },
+            { label: "20-50元", order: 39.3, gmv: 42.6 },
+            { label: "50-100元", order: 4.3, gmv: 9.3 },
+            { label: "100-200元", order: 1.1, gmv: 4.8 },
+            { label: "200元+", order: 0.3, gmv: 3.1 }
+          ],
+          insight: "乙游造景客单最低——<b>0-20元</b>占54.9%下单，色纸/小谷子/平价造景件驱动；靠数量和IP黏性走量，不是高客单生意。"
+        }
+      },
+      note: {
+        vsGood: [
+          "封面拍出<b>艺术馆级美学</b>：谷美/造景的画面本身即种草",
+          "标题带<b>「我推」情感</b>：「这个谷美让我推成为传世之作」",
+          "正文有<b>造景搭配/场景实拍</b>，同好代入感强",
+          "补货款突出<b>「余量掉落/补货即抢」</b>稀缺感"
+        ],
+        vsBad: [
+          "封面只摆单品图，<b>无美学无造景</b>，激不起「我推」情感",
+          "标题「谷子上新」<b>公告体</b>，无角色情感钩子",
+          "只报款式，<b>无造景无场景叙事</b>，同好无感",
+          "对乙游IP无理解，<b>用错角色/CP</b>易翻车"
+        ],
+        templates: [
+          { name: "脑洞造景种草体(核心)", heat: 3,
+            fields: [["适用商品","谷美造景背板/摆台"],["标题模板","「什么？＿＿也可以当谷美！？」"],["正文结构","日常物脑洞开头(笔筒/摩天大楼当背板)→放立牌实拍→生活气息/氛围感点题→吃谷好物引导"],["推荐标签",["#谷美","#谷美造景","#吃谷好物"]],["参考笔记","https://www.xiaohongshu.com/discovery/item/661e5f3b0000000001004e7a"]] },
+          { name: "到货补货即抢体", heat: 3,
+            fields: [["适用商品","公交站台谷美/亚克力造景"],["标题模板","「＿＿谷美到货啦！！！是谁在等？」"],["正文结构","之前没货的钩子→到货预告→适配立牌/ob11/粘土人说明→氛围造景引导"],["推荐标签",["#公交站台谷美","#谷美立牌","#谷美亚克力"]],["参考笔记","https://www.xiaohongshu.com/discovery/item/66f37ee1000000001a021925"]] },
+          { name: "选品投票互动体", heat: 3,
+            fields: [["适用商品","谷美道具/多配色款"],["标题模板","「谷美二选一！＿色or＿色？」"],["正文结构","脑洞产品介绍→可放小卡/拍立得/立牌功能→配色纠结→「投票选大货颜色」互动引导"],["推荐标签",["#谷美","#谷美道具","#谷美亚克力"]],["参考笔记","https://www.xiaohongshu.com/discovery/item/6696368900000000250061fa"]] }
+        ]
+      },
+      live: {
+        formats: [
+          { icon: "🎨", name: "谷美美学鉴赏直播", heat: "停留🔥🔥", desc: "逐款讲谷美/造景美学与「我推」故事，同好沉浸停留久。" },
+          { icon: "🏰", name: "角色造景搭配场", heat: "转化🔥🔥", desc: "现场演示甜品店/场景造景搭配，「我推」情感带转化。" },
+          { icon: "⚡", name: "色纸补货秒抢场", heat: "转化🔥🔥🔥", desc: "热门色纸/余量补货专场，「补货即抢」稀缺冲动。" }
+        ],
+        pallet: [
+          { role: "引流", name: "平价色纸/纸片 ¥1–19", note: "低价钩子，讲「我推」情感引同好" },
+          { role: "承接", name: "谷美/造景贴纸 ¥19–99", note: "主推款，讲造景美学与角色故事" },
+          { role: "利润", name: "宫灯/高美学造景 ¥99+", note: "讲美学氛围与稀缺，拉客单" }
+        ],
+        scripts: [
+          { scene: "我推情感", text: "「这个谷美真的绝，<span class='quote'>把我推拍成了传世之作</span>，同担的姐妹一定懂这种心动。」" },
+          { scene: "造景美学", text: "「跟着摆这个甜品店造景，<span class='quote'>整个桌面像走进了游戏场景</span>，拍照出片到不行。」" },
+          { scene: "补货秒抢", text: "「这批色纸是补货款，<span class='quote'>上次余量掉落几分钟就抢没了</span>，想要的赶紧下手。」" }
+        ],
+        combo: [
+          { text: "<b>预告笔记</b>：发「谷美/造景美图」笔记，评论区预告直播「一起搭造景」，导流预约。" },
+          { text: "<b>直播切片</b>：把「谷美鉴赏/造景搭配」剪成笔记，承接「＿＿谷美 造景」搜索。" },
+          { text: "<b>同好UGC</b>：引导同好发「我推造景」笔记 @店铺，圈层氛围带传播。" }
+        ]
+      },
+      cadence: {
+        timeline: [
+          { day: "工作日", note: "日常种草：谷美/造景美图", live: "常态谷美鉴赏直播" },
+          { day: "周三", note: "造景搭配：场景实拍展示", live: "" },
+          { day: "补货日", note: "色纸补货：余量掉落预告", live: "色纸补货秒抢场" },
+          { day: "周末", note: "我推互动：同担共鸣UGC", live: "角色造景搭配场" },
+          { day: "新IP", note: "热门乙游新谷跟进", live: "谷美美学鉴赏直播" }
+        ],
+        playbookSustain: {
+          freq: "长期 · 每周 4–5 篇",
+          items: ["店主乙游同好人设，建立「我推」情感信任","谷美美学、造景搭配持续输出","同好我推返图、造景晒单沉淀圈层"]
+        },
+        playbookHarvest: {
+          freq: "补货/热门IP节点 · 可提频",
+          items: ["补货锚定：「余量掉落最后＿份」秒抢钩子","我推催单：「本命谷断货不补」","热门乙游新谷+造景组合钩子"],
+          warn: "乙游圈重情感与IP理解，别用错角色/CP；补货秒抢型别天天刷，美学/情感内容才是长效。"
+        }
+      }
+    }
+  ]
+});
+
+/* ============================================================
+   渲染引擎 —— 读取 DASHBOARD_DATA 生成页面
+   ============================================================ */
+(function () {
+  const D = DASHBOARD_DATA;
+  const esc = (s) => String(s == null ? "" : s);
+
+  /* ==================================================================
+     生命周期自动路由：按 festivalDate 距今天数，自动判定阶段
+     并覆盖 when / lifecycle / summary 话术 / live / cadence
+     数据部分（主题榜/选品/参考笔记）不受影响，保持每周最新
+     ================================================================== */
+  const LIFECYCLE_RULES = [
+    { key: "warmup",  name: "预热期", cls: "warmup", min: 31, max: 9999 },
+    { key: "sprint",  name: "冲刺期", cls: "sprint", min: 8,  max: 30   },
+    { key: "harvest", name: "收割期", cls: "peak",   min: 0,  max: 7    },
+    { key: "after",   name: "余温期", cls: "base",   min: -14, max: -1  }
+  ];
+  function daysUntil(dateStr) {
+    if (!dateStr) return null;
+    const today = new Date(); today.setHours(0,0,0,0);
+    const fd = new Date(dateStr + "T00:00:00");
+    return Math.round((fd - today) / 86400000);
+  }
+  function pickStage(days) {
+    if (days == null) return null;
+    for (const r of LIFECYCLE_RULES) if (days >= r.min && days <= r.max) return r;
+    if (days > 30) return LIFECYCLE_RULES[0];
+    if (days < -14) return null; // 节日已过太久，不路由
+    return null;
+  }
+  function whenLabel(days) {
+    if (days == null) return "";
+    if (days < 0) return "已过 " + (-days) + " 天";
+    if (days === 0) return "就在今天";
+    if (days <= 7) return days + " 天后";
+    return Math.round(days/7) + " 周后";
+  }
+  /* 各阶段方法论文案库（★ 非数据结论，为节庆营销通用方法论建议） */
+  const PLAYBOOK = {
+    warmup: {
+      summaryTail: "，正是<b>提前卡位</b>窗口：用走心种草蓄水、测品，抢在冲刺期前占住搜索心智。",
+      actionLead: "提前布局",
+      live: {
+        formats: [
+          { icon: "🌱", name: "预热种草测品场", heat: "蓄水🔥🔥", desc: "低频试播，讲选礼理念、测哪些款用户反应好，为冲刺期备货铺垫。" },
+          { icon: "🙋", name: "帮你提前选礼答疑", heat: "停留🔥🔥", desc: "按弹幕报的关系/预算给灵感，建立「懂送礼」专业感，蓄粉。" }
+        ],
+        note: "★ 预热期方法论建议：重心是种草蓄水与测品，不催单。"
+      },
+      cadence: {
+        timeline: [
+          { day: "当前(预热)", note: "种草蓄水：选礼灵感、场景内容", live: "试播：测品、看反应" },
+          { day: "进入冲刺(节前4周)", note: "切决策内容：按关系/预算分层", live: "开始常态开播" },
+          { day: "收割(节前1周)", note: "催单：截单提醒、现货款", live: "密集专场" },
+          { day: "节后", note: "余温：补送/纪念日承接", live: "常态" }
+        ],
+        note: "★ 预热期方法论建议：先蓄水，催单动作留到冲刺/收割期再上。"
+      }
+    },
+    sprint: {
+      summaryTail: "，需求进入<b>陡增通道</b>：该把货盘讲清、按关系/预算铺决策内容，加速催单转化。",
+      actionLead: "冲刺铺量",
+      live: {
+        formats: [
+          { icon: "💝", name: "送对象场景演示", heat: "转化🔥🔥🔥", desc: "演示拆礼+包装，把「送出去多有面子」演给用户看。" },
+          { icon: "📋", name: "按预算选礼专场", heat: "转化🔥🔥", desc: "按关系/预算分层讲货盘，替用户做选择题，主推承接款。" },
+          { icon: "🙋", name: "帮你选礼连麦", heat: "停留🔥🔥", desc: "弹幕报关系/预算现场配礼，停留高。" }
+        ],
+        note: "★ 冲刺期方法论建议：铺量+决策内容为主，货盘讲清楚。"
+      },
+      cadence: {
+        timeline: [
+          { day: "节前2周", note: "预热：礼物灵感、款式种草", live: "试播：款式测品" },
+          { day: "节前1周", note: "决策内容：按关系/预算分层清单", live: "常态开播：主力款" },
+          { day: "节前3天", note: "冲刺催单：截单提醒", live: "密集专场：倒计时" },
+          { day: "当周", note: "临门收割：现货款", live: "冲刺专场：加价购" }
+        ],
+        note: "★ 冲刺期方法论建议：决策内容+适度催单，节奏提频。"
+      }
+    },
+    harvest: {
+      summaryTail: "，进入<b>最后收割窗口</b>：主推现货、截单倒计时、临门逼单，抓住节前最后成交。",
+      actionLead: "临门收割",
+      live: {
+        formats: [
+          { icon: "⏰", name: "截单冲刺场", heat: "转化🔥🔥🔥", desc: "密集开播，截单倒计时，制造「再不下单就赶不上」紧迫感。" },
+          { icon: "📦", name: "现货加价购场", heat: "转化🔥🔥🔥", desc: "主推包节前达的现货款，加价购拉客单。" },
+          { icon: "🙋", name: "急速帮选连麦", heat: "停留🔥🔥", desc: "临门帮犹豫用户拍板，快速转化。" }
+        ],
+        note: "★ 收割期方法论建议：主推现货+截单逼单，定制类应已停接。"
+      },
+      cadence: {
+        timeline: [
+          { day: "节前3天", note: "冲刺催单：截单提醒、现货主推", live: "密集专场：截单倒计时" },
+          { day: "节前1天", note: "临门收割：包当日达现货款", live: "冲刺专场：加价购" },
+          { day: "当天", note: "现货收尾+晒单", live: "收尾场" },
+          { day: "节后", note: "余温：补送/纪念日承接", live: "常态" }
+        ],
+        note: "★ 收割期方法论建议：以现货和紧迫感逼单，别再上长工期款。"
+      }
+    },
+    after: {
+      summaryTail: "，节点已过，转入<b>余温承接</b>：补送、纪念日、日常表白场景延续长尾。",
+      actionLead: "余温承接",
+      live: {
+        formats: [
+          { icon: "🔄", name: "补送/纪念日常态场", heat: "转化🔥🔥", desc: "承接错过节点的补送、纪念日需求，日常款走量。" },
+          { icon: "🙋", name: "日常选礼答疑", heat: "停留🔥", desc: "延续「懂送礼」人设，为下一节点蓄水。" }
+        ],
+        note: "★ 余温期方法论建议：承接长尾+为下个节点蓄水。"
+      },
+      cadence: {
+        timeline: [
+          { day: "节后1周", note: "余温：补送、纪念日承接", live: "常态：日常款" },
+          { day: "日常", note: "为下一节点蓄水种草", live: "低频试播" }
+        ],
+        note: "★ 余温期方法论建议：重心转回日常经营与下一节点预热。"
+      }
+    }
+  };
+  /* 激活阈值：距节点 <= 8 周(56天) 才拉真实站内数据；更远只做「日历预告位」 */
+  const ACTIVATE_DAYS = 56;
+  /* 远节点的「确定性品类常识」—— ⚠️ 行业经验常识，非站内真实数据 */
+  const PREVIEW_KNOWLEDGE = {
+    midautumn: {
+      subtitle: "中秋 + 教师节双节",
+      staples: [
+        { name: "月饼礼盒", why: "中秋硬通货，送长辈/送领导主力" },
+        { name: "茶叶 / 滋补礼盒", why: "送领导得体、客单高" },
+        { name: "教师节心意礼", why: "鲜花+文创，送老师平价走量" }
+      ],
+      prep: "建议 8 月初（距节点约 8 周）开始拉真实站内趋势、备月饼礼盒货盘。"
+    },
+    national: {
+      subtitle: "国庆 + 生日季",
+      staples: [
+        { name: "出游 / 伴手礼", why: "国庆长假出行送礼场景" },
+        { name: "生日礼物 / 仪式感礼盒", why: "生日季长尾刚需，全年可承接" }
+      ],
+      prep: "建议 8 月下旬（距节点约 8 周）开始拉真实站内趋势数据。"
+    }
+  };
+  /* 对每个含 festivalDate 的焦点，用自动阶段覆盖静态字段 */
+  D.directions.forEach(dir => {
+    (dir.focuses || []).forEach(f => {
+      if (!f.festivalDate) return;
+      const days = daysUntil(f.festivalDate);
+      const stage = pickStage(days);
+      if (!stage) return;
+      f._autoDays = days;
+      f._autoStage = stage;
+      // 覆盖 when / lifecycle
+      f.when = whenLabel(days);
+      f.lifecycle = stage.name;
+      f.lifecycleClass = stage.cls;
+      if (f.summary) f.summary.stage = stage.name;
+      // 距节点 > 8 周：标记为「日历预告位」，不渲染伪数据段
+      if (days > ACTIVATE_DAYS) {
+        f._preview = true;
+        f._previewKnowledge = PREVIEW_KNOWLEDGE[f.id] || null;
+      }
+      // 覆盖 live / cadence 为对应阶段方法论
+      const pb = PLAYBOOK[stage.key];
+      if (pb) {
+        if (pb.live && f.live)  f.live.formats = pb.live.formats, f.live._note = pb.live.note;
+        if (pb.cadence && f.cadence) f.cadence.timeline = pb.cadence.timeline, f.cadence._note = pb.cadence.note;
+      }
+    });
+  });
+  const heat = (n) => {
+    const full = "🔥".repeat(n);
+    const dim = n < 3 ? `<span class="heat-dim">${"🔥".repeat(3 - n)}</span>` : "";
+    return `<span class="heat">${full}${dim}</span>`;
+  };
+  const trendDir = (dir) => dir === "up" ? "trend-up" : dir === "down" ? "trend-down" : "trend-flat";
+  const trendArrow = (dir) => dir === "up" ? "↑" : dir === "down" ? "↓" : "→";
+
+  // 顶部 meta
+  document.getElementById("metaPeriod").textContent = D.meta.period;
+  document.getElementById("metaFreq").textContent = D.meta.freq;
+  document.getElementById("metaScope").textContent = D.meta.scopeNote;
+
+  // ---- ① 开篇大盘 ----
+  function renderSummary(d) {
+    const s = d.summary;
+    const anchorBadge = (dir) => dir === "up"
+      ? `<span class="sig-anchor up">升温中</span>`
+      : dir === "down"
+        ? `<span class="sig-anchor down">降温</span>`
+        : `<span class="sig-anchor flat">平稳</span>`;
+    const sig = s.signals.map(x => `
+      <div class="signal">
+        <div class="sig-label">${esc(x.label)}${anchorBadge(x.dir)}</div>
+        <div class="sig-value">${esc(x.value)}</div>
+        <div class="sig-trend ${trendDir(x.dir)}">${trendArrow(x.dir)} ${esc(x.trend)}</div>
+      </div>`).join("");
+    // 近14天加购曲线（sparkline，仅有 dailyCurve 的焦点渲染）
+    const dc = s.dailyCurve;
+    let curveBlock = "";
+    if (dc && dc.vals && dc.vals.length) {
+      const w = 260, h = 44, n = dc.vals.length;
+      const mx = Math.max(...dc.vals), mn = Math.min(...dc.vals);
+      const rng = mx - mn || 1;
+      const px = i => (i / (n - 1)) * w;
+      const py = v => h - 4 - ((v - mn) / rng) * (h - 8);
+      const pts = dc.vals.map((v, i) => `${px(i).toFixed(1)},${py(v).toFixed(1)}`).join(" ");
+      const area = `0,${h} ${pts} ${w},${h}`;
+      const lastX = px(n - 1), lastY = py(dc.vals[n - 1]);
+      const trClass = dc.trend === "陡增" ? "surge" : dc.trend === "温和上升" ? "rise" : dc.trend === "下滑" ? "fall" : "flat";
+      curveBlock = `
+        <div class="curve-block">
+          <div class="curve-head">
+            <span class="curve-title">近14天加购走势</span>
+            <span class="curve-badge ${trClass}">${esc(dc.trend)}</span>
+            <span class="curve-range">${esc(dc.range)}</span>
+          </div>
+          <svg class="curve-svg" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" aria-hidden="true">
+            <defs><linearGradient id="cg-${trClass}" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" class="cg-top"/><stop offset="100%" class="cg-bot"/>
+            </linearGradient></defs>
+            <polygon class="curve-area ${trClass}" points="${area}" fill="url(#cg-${trClass})"/>
+            <polyline class="curve-line ${trClass}" points="${pts}"/>
+            <circle class="curve-dot ${trClass}" cx="${lastX.toFixed(1)}" cy="${lastY.toFixed(1)}" r="3.2"/>
+          </svg>
+          <div class="curve-note">${esc(dc.note)}</div>
+        </div>`;
+    }
+    return `
+      <section class="seg">
+        <div class="seg__head"><div class="seg__num">1</div><div class="seg__title">开篇大盘</div></div>
+        <div class="seg__desc">该焦点当前处于什么阶段、最该抓的一件事</div>
+        <div class="summary-card">
+          <span class="stage-badge">${esc(s.stage)}</span>
+          <div class="headline">${s.headline}</div>
+          <div class="action-line"><span class="lead">✦ 最该抓的一件事</span><span class="act-body">${s.action}</span></div>
+          <div class="signals">${sig}</div>
+          ${curveBlock}
+        </div>
+      </section>`;
+  }
+
+  // ---- ② 趋势洞察 ----
+  function renderTrend(d) {
+    const t = d.trend;
+    const ahead = t.lookahead.map(n => `
+      <div class="node-item ${n.soon ? "soon" : ""}">
+        <span class="when">${esc(n.when)}</span>
+        <div><div class="node-name">${esc(n.name)}</div><div class="node-note">${esc(n.note)}</div></div>
+        ${heat(n.heat)}
+      </div>`).join("");
+    const back = t.lookback.map(n => `
+      <div class="node-item">
+        <div style="flex:1"><div class="node-name">${esc(n.name)} <span class="mom trend-up" style="font-size:.74rem;font-weight:700">${esc(n.mom)}</span></div><div class="node-note">${esc(n.note)}</div></div>
+        ${heat(n.heat)}
+      </div>`).join("");
+    const themes = t.themes.map(x => `
+      <span class="theme-tag ${x.hot ? "hot" : ""}"><span class="rank">#${x.rank}</span>${esc(x.name)}<span class="mom ${x.mom.includes("+")?"trend-up":"trend-flat"}">${esc(x.mom)}</span></span>`).join("");
+    return `
+      <section class="seg">
+        <div class="seg__head"><div class="seg__num">2</div><div class="seg__title">趋势洞察</div></div>
+        <div class="seg__desc">左边看「什么时候该干嘛」，右边看「现在有哪些品在涨、可以直接跟」</div>
+        <div class="trend-legend">🔥🔥🔥 很热 · 🔥🔥 较热 · 🔥 一般；<span class="mom trend-up">+高/+中</span> 表示涨势强弱</div>
+        <div class="grid grid-2">
+          <div class="card"><div class="lookahead-head"><span class="ico">◈</span>时间线 · 接下来该准备什么</div><div class="node-list">${ahead}</div></div>
+          <div class="card"><div class="lookback-head"><span class="ico">◱</span>品类榜 · 现在已在涨、可直接跟</div><div class="node-list">${back}</div></div>
+        </div>
+        <div class="card" style="margin-top:12px">
+          <div class="lookahead-head" style="margin-bottom:8px"><span class="ico" style="color:var(--xhs-red)">✦</span>热门主题词 · 内容钩子</div>
+          <div class="theme-tags">${themes}</div>
+          <div class="seg__desc" style="margin:10px 0 0 0">${esc(t.themeNote)}</div>
+        </div>
+      </section>`;
+  }
+
+  // ---- ③ 选品方向 ----
+  function renderPicks(d) {
+    const p = d.picks;
+    const items = p.items.map(it => {
+      const m = it.metrics.map(([k, v]) => `<span>${esc(k)} <b>${esc(v)}</b></span>`).join("");
+      return `
+        <div class="pick-item ${it.level}">
+          <div class="pick-top">
+            <span class="pick-name">${esc(it.name)}</span>
+            <span class="pick-badge badge-${it.level}">${esc(it.badge)}</span>
+            <span class="pick-metrics">${m}</span>
+          </div>
+          <div class="pick-note">${it.note}</div>
+        </div>`;
+    }).join("");
+    // 价格带分布块（真实成交数据，仅有 priceBands 的焦点渲染）
+    const pb = p.priceBands;
+    const priceBandBlock = pb ? `
+        <div class="card">
+          <div class="lookahead-head" style="margin-bottom:4px"><span class="ico" style="color:var(--warm-gold)">💰</span>真实成交价格带 · 上什么价位</div>
+          <div class="seg__desc" style="margin:2px 0 12px 0">${pb.note}</div>
+          <div class="pband-legend"><span><i class="pb-dot order"></i>下单占比</span><span><i class="pb-dot gmv"></i>GMV占比</span></div>
+          <div class="pband-list">
+            ${pb.bands.map(b => `
+              <div class="pband-row ${b.hot ? "hot" : ""}">
+                <div class="pband-label">${esc(b.label)}${b.hot ? '<span class="pband-tag">主流</span>' : ''}</div>
+                <div class="pband-bars">
+                  <div class="pband-bar-wrap"><div class="pband-bar order" style="width:${b.order}%"></div><span class="pband-val">${b.order}%</span></div>
+                  <div class="pband-bar-wrap"><div class="pband-bar gmv" style="width:${b.gmv}%"></div><span class="pband-val">${b.gmv}%</span></div>
+                </div>
+              </div>`).join("")}
+          </div>
+          <div class="pick-insight">💡 ${pb.insight}</div>
+        </div>` : "";
+    // 去年同期爆发趋势块（真实数据，仅有 lastYearSurge 的焦点渲染）
+    const ly = p.lastYearSurge;
+    const lastYearBlock = ly ? `
+        <div class="card">
+          <div class="lookahead-head" style="margin-bottom:4px"><span class="ico" style="color:var(--xhs-red)">📅</span>去年同期爆发规律 · 什么时候上、上什么品</div>
+          <div class="seg__desc" style="margin:2px 0 12px 0">${ly.note}</div>
+          <div class="lys-list">
+            ${ly.rows.map(r => {
+              const mx = Math.max(...r.vals);
+              return `
+              <div class="lys-row">
+                <div class="lys-theme">${esc(r.theme)}</div>
+                <div class="lys-spark">${r.vals.map((v,i) => `<div class="lys-bar-wrap" title="${esc(ly.weeks[i])}: ${v}"><div class="lys-bar" style="height:${mx?Math.max(6,Math.round(v/mx*100)):6}%"></div></div>`).join("")}</div>
+                <div class="lys-surge">${esc(r.surge)}</div>
+              </div>`;
+            }).join("")}
+          </div>
+          <div class="lys-axis"><span>${esc(ly.weeks[0])}</span><span>${esc(ly.weeks[ly.weeks.length-1])}</span></div>
+          <div class="pick-insight">💡 ${ly.insight}</div>
+        </div>` : "";
+    return `
+      <section class="seg">
+        <div class="seg__head"><div class="seg__num">3</div><div class="seg__title">选品方向</div></div>
+        <div class="seg__desc">上什么品 · 什么风格价位</div>
+        <div class="card">
+          <div class="signal-legend">
+            <span><i class="dot dot-follow"></i>立即跟进</span><span><i class="dot dot-potential"></i>高潜布局</span>
+            <span><i class="dot dot-base"></i>基本盘</span><span><i class="dot dot-diff"></i>差异化</span>
+          </div>
+          ${items}
+          <div class="seg__desc" style="margin:12px 0 0 0">💰 ${esc(p.priceNote)}</div>
+        </div>
+        ${priceBandBlock}
+        ${lastYearBlock}
+      </section>`;
+  }
+
+  // ---- ④ 内容打法（笔记 + 直播 子tab） ----
+  function renderContent(d, idx) {
+    const n = d.note, l = d.live;
+    const good = n.vsGood.map(x => `<li>${x}</li>`).join("");
+    const bad = n.vsBad.map(x => `<li>${x}</li>`).join("");
+    const tmpls = n.templates.map((t, i) => {
+      // 提取参考笔记真实 URL（用于卡头提示 + 卡内醒目入口）
+      let refUrl = "";
+      t.fields.forEach(([k, v]) => {
+        if (k === "参考笔记" && typeof v === "string" && /^https?:\/\//.test(v)) refUrl = v;
+      });
+      const fields = t.fields.map(([k, v]) => {
+        let val;
+        if (Array.isArray(v)) val = v.map(tag => `<span class="tagchip">${esc(tag)}</span>`).join("");
+        else if (k === "参考笔记") {
+          const isUrl = /^https?:\/\//.test(v);
+          val = isUrl
+            ? `<a class="ref-link" href="${esc(v)}" target="_blank" rel="noopener">查看真实爆款笔记 ↗</a>`
+            : `<a class="ref-link" href="#" data-ref="${esc(v)}">参考笔记（待补）</a>`;
+        }
+        else if (k === "标题模板") val = `<span class="code">${esc(v)}</span>`;
+        else val = esc(v);
+        return `<div class="tmpl-field"><span class="fk">${esc(k)}</span><span class="fv">${val}</span></div>`;
+      }).join("");
+      const bid = `tmpl-${idx}-${i}`;
+      const refChip = refUrl ? `<span class="tmpl-ref-chip">📎 真实笔记</span>` : "";
+      const refCta = refUrl
+        ? `<a class="tmpl-ref-cta" href="${esc(refUrl)}" target="_blank" rel="noopener">📎 看这条真实爆款笔记 <span class="arr">↗</span></a>`
+        : "";
+      return `
+        <div class="tmpl-card">
+          <div class="tmpl-head" role="button" tabindex="0" aria-expanded="false" aria-controls="${bid}" data-toggle="${bid}">
+            <span class="tmpl-idx">${i + 1}</span><span class="tmpl-name">${esc(t.name)}</span>
+            ${refChip}
+            <span class="tmpl-heat">热度 ${heat(t.heat)}</span><span class="caret">▾</span>
+          </div>
+          <div class="tmpl-body" id="${bid}">${fields}${refCta}</div>
+        </div>`;
+    }).join("");
+
+    const formats = l.formats.map(f => `
+      <div class="lf-item"><span class="lf-icon">${esc(f.icon)}</span><div><div class="lf-name">${esc(f.name)}<span class="lf-heat">${esc(f.heat)}</span></div><div class="lf-desc">${esc(f.desc)}</div></div></div>`).join("");
+    const pallet = l.pallet.map((s, i) => `
+      <div class="pallet-step s${i + 1}"><span class="ps-role">${esc(s.role)}</span><div><div class="ps-name">${esc(s.name)}</div><div class="ps-note">${esc(s.note)}</div></div></div>`).join("");
+    const scripts = l.scripts.map(s => `
+      <div class="script-item"><div class="si-scene">${esc(s.scene)}</div><div class="si-text">${s.text}</div></div>`).join("");
+    const combo = l.combo.map((c, i) => `
+      <div class="combo-item"><span class="ci-step">${i + 1}</span><div class="ci-text">${c.text}</div></div>`).join("");
+
+    return `
+      <section class="seg">
+        <div class="seg__head"><div class="seg__num">4</div><div class="seg__title">内容打法</div></div>
+        <div class="seg__desc">笔记怎么发 × 直播怎么播（同源趋势，打法互补）</div>
+        <div class="card">
+          <div class="subtabs" role="tablist">
+            <button class="subtab-btn" role="tab" aria-selected="true" data-sub="note-${idx}">📝 笔记怎么发</button>
+            <button class="subtab-btn" role="tab" aria-selected="false" data-sub="live-${idx}">📹 直播怎么播</button>
+          </div>
+
+          <div class="subpanel active" id="note-${idx}">
+            <div class="vs-grid">
+              <div class="vs-col good"><div class="vs-head">🟢 抄的招</div><ul>${good}</ul></div>
+              <div class="vs-col bad"><div class="vs-head">🔴 避的坑</div><ul>${bad}</ul></div>
+            </div>
+            <div class="seg__desc" style="margin:16px 0 8px 0;font-weight:800;color:var(--ink-0);font-size:.92rem">✦ 可复制爆款模板（点击展开）</div>
+            ${tmpls}
+          </div>
+
+          <div class="subpanel" id="live-${idx}">
+            ${l._note ? `<div class="method-note">${esc(l._note)}</div>` : ""}
+            <div class="lookahead-head" style="margin-bottom:10px"><span class="ico">📹</span>直播形式</div>
+            <div class="live-format">${formats}</div>
+            <div class="lookahead-head" style="margin:18px 0 10px"><span class="ico">📦</span>货盘组合逻辑</div>
+            <div class="pallet">${pallet}</div>
+            <div class="lookahead-head" style="margin:18px 0 10px"><span class="ico">🎤</span>话术要点</div>
+            <div class="script-list">${scripts}</div>
+            <div class="lookahead-head" style="margin:18px 0 10px"><span class="ico" style="color:var(--info)">🔗</span>笔记 × 直播联动</div>
+            <div class="combo">${combo}</div>
+          </div>
+        </div>
+      </section>`;
+  }
+
+  // ---- ⑤ 发布节奏 ----
+  function renderCadence(d) {
+    const c = d.cadence;
+    const rows = c.timeline.map(r => {
+      const noteBar = r.note ? `<div class="tl-bar note">📝 ${esc(r.note)}</div>` : "";
+      const liveBar = r.live ? `<div class="tl-bar live">📹 ${esc(r.live)}</div>` : `<div class="tl-bar empty">— 无直播 —</div>`;
+      return `<div class="tl-row"><div class="tl-day">${esc(r.day)}</div><div class="tl-bars">${noteBar}${liveBar}</div></div>`;
+    }).join("");
+    const ps = c.playbookSustain, ph = c.playbookHarvest;
+    const sItems = ps.items.map(x => `<li>${esc(x)}</li>`).join("");
+    const hItems = ph.items.map(x => `<li>${esc(x)}</li>`).join("");
+    return `
+      <section class="seg">
+        <div class="seg__head"><div class="seg__num">5</div><div class="seg__title">发布节奏</div></div>
+        <div class="seg__desc">笔记发布频率时机 + 直播开播排期，一条时间线看清</div>
+        <div class="card">
+          ${c._note ? `<div class="method-note">${esc(c._note)}</div>` : ""}
+          <div class="cadence-legend"><span><i class="legend-note"></i>笔记</span><span><i class="legend-live"></i>直播</span></div>
+          <div class="timeline">${rows}</div>
+        </div>
+        <div class="playbook-grid">
+          <div class="playbook sustain">
+            <div class="pb-head">🌱 可持续人设打法</div>
+            <span class="pb-freq">${esc(ps.freq)}</span>
+            <ul>${sItems}</ul>
+          </div>
+          <div class="playbook harvest">
+            <div class="pb-head">⚡ 短期收割打法</div>
+            <span class="pb-freq">${esc(ph.freq)}</span>
+            <ul>${hItems}</ul>
+            <div class="pb-warn">⚠ ${esc(ph.warn)}</div>
+          </div>
+        </div>
+      </section>`;
+  }
+
+  // ---- 焦点选择器 ----
+  function renderFocusBar(d, dirIdx, activeFocusIdx) {
+    const chips = d.focuses.map((f, i) => `
+      <button class="focus-chip ${f.soon ? "soon" : ""}" role="tab"
+              aria-selected="${i === activeFocusIdx ? "true" : "false"}"
+              data-dir="${dirIdx}" data-focus="${i}">
+        <span class="fc-heat">${heat(f.summary.signals[1] ? (f.summary.signals[1].value.match(/🔥/g) || []).length : 2)}</span>
+        <span class="fc-when">${esc(f.when)}</span>
+        <span class="fc-name">${esc(f.name)}</span>
+        <span class="fc-stage ${esc(f.lifecycleClass)}">${esc(f.lifecycle)}</span>
+      </button>`).join("");
+    return `
+      <div class="focus-bar">
+        <div class="focus-bar__label">🎯 <span class="axis-name">${esc(d.focusAxis.label)}</span><span class="hint">· ${esc(d.focusAxis.hint)}</span></div>
+        <div class="focus-scroll" role="tablist">${chips}</div>
+      </div>`;
+  }
+
+  // ---- 日历预告位（远节点：距节点 >8 周，不拉真实数据） ----
+  function renderPreview(f, d) {
+    const days = f._autoDays;
+    const weeks = Math.ceil(days / 7);
+    const k = f._previewKnowledge;
+    const staples = k ? k.staples.map(s => `
+      <div class="pv-staple">
+        <span class="pv-staple-name">${esc(s.name)}</span>
+        <span class="pv-staple-why">${esc(s.why)}</span>
+      </div>`).join("") : `<div class="pv-empty">该节点确定性品类待补充。</div>`;
+    return `
+      <section class="seg">
+        <div class="preview-card">
+          <div class="pv-countdown">
+            <span class="pv-badge">📅 日历预告位</span>
+            <div class="pv-days">距${esc(f.name)}还有 <b>${days}</b> 天<span class="pv-weeks">（约 ${weeks} 周）· 当前${esc(f.lifecycle)}</span></div>
+          </div>
+          <div class="pv-reason">
+            此节点距今较远，站内节庆内容尚未起量，<b>此时拉数据会不准</b>。为避免误导，本板块暂不展示站内趋势数据，仅做提前规划提示。
+          </div>
+          <div class="pv-section">
+            <div class="pv-title">📌 确定性品类（可提前规划）</div>
+            <div class="pv-warn">⚠️ 以下为行业经验常识，<b>非站内实时数据</b>，仅供提前备货参考</div>
+            <div class="pv-staples">${staples}</div>
+          </div>
+          <div class="pv-activate">
+            🔔 <b>数据激活提示：</b>${k ? esc(k.prep) : `距节点 8 周内，本板块将自动填入真实站内趋势数据。`}
+          </div>
+        </div>
+      </section>`;
+  }
+
+  // 当前焦点的标题条 + 五段内容
+  // 渐进披露：把非核心段包成可折叠壳（凝练概括标题，默认收起）
+  function foldable(sectionHtml, num, title, sub) {
+    return `
+      <details class="seg-fold">
+        <summary class="fold-head">
+          <span class="fold-num">${num}</span>
+          <span class="fold-title">${title}</span>
+          <span class="fold-sub">${sub}</span>
+          <span class="fold-caret" aria-hidden="true">▾</span>
+        </summary>
+        <div class="fold-body">${sectionHtml}</div>
+      </details>`;
+  }
+
+  function renderFocusContent(d, focusIdx) {
+    const f = d.focuses[focusIdx];
+    const body = f._preview
+      ? renderPreview(f, d)
+      : (
+          renderSummary(f)
+          + renderPicks(f)
+          + foldable(renderTrend(f), "2", "趋势脉络", "时间线 · 在涨品类 · 内容钩子")
+          + foldable(renderContent(f, d._idx), "4", "怎么发 · 怎么播", "爆款模板 · 直播话术")
+          + foldable(renderCadence(f), "5", "发布排期", "频率时机 · 两套打法")
+        );
+    return `
+      <div class="focus-now">
+        <span class="fn-icon">${esc(f.icon)}</span>
+        <span class="fn-name">${esc(f.name)}</span>
+        <span class="fn-tag">${esc(d.focusAxis.label)}</span>
+        <span class="fn-lifecycle">${esc(f.lifecycle)}</span>
+      </div>
+      <div class="focus-content">
+        ${body}
+        <div class="disclaimer"><b>数据口径说明：</b>${D.disclaimer}</div>
+      </div>`;
+  }
+
+  // ---- 组装 ----
+  const tablist = document.getElementById("tablist");
+  const panels = document.getElementById("panels");
+  D.directions.forEach((d, idx) => {
+    d._idx = idx;
+    const btn = document.createElement("button");
+    btn.className = "tab-btn";
+    btn.setAttribute("role", "tab");
+    btn.setAttribute("aria-selected", idx === 0 ? "true" : "false");
+    btn.dataset.panel = "panel-" + idx;
+    btn.innerHTML = `<span class="emoji">${d.emoji}</span>${esc(d.name)}`;
+    tablist.appendChild(btn);
+
+    const panel = document.createElement("div");
+    panel.className = "tab-panel" + (idx === 0 ? " active" : "");
+    panel.id = "panel-" + idx;
+    panel.innerHTML =
+      renderFocusBar(d, idx, 0) +
+      `<div class="focus-slot" id="focus-slot-${idx}">${renderFocusContent(d, 0)}</div>`;
+    panels.appendChild(panel);
+  });
+
+  // 页脚
+  document.getElementById("foot").innerHTML =
+    `行业风向指引 · 肖宇商家专属版　|　三方向：节庆礼品 / 摆件 / 潮玩<br>本页为结构与内容 Demo，数据以档位/排名/占比脱敏呈现，真实数值由 BI 填充。`;
+
+  // ---- 交互 ----
+  // 主 Tab 切换
+  tablist.addEventListener("click", (e) => {
+    const btn = e.target.closest(".tab-btn");
+    if (!btn) return;
+    switchMainTab(btn);
+  });
+  tablist.addEventListener("keydown", (e) => {
+    const btns = [...tablist.querySelectorAll(".tab-btn")];
+    const i = btns.indexOf(document.activeElement);
+    if (i < 0) return;
+    if (e.key === "ArrowRight") { e.preventDefault(); btns[(i + 1) % btns.length].focus(); }
+    if (e.key === "ArrowLeft") { e.preventDefault(); btns[(i - 1 + btns.length) % btns.length].focus(); }
+    if (e.key === "Enter" || e.key === " ") { e.preventDefault(); switchMainTab(document.activeElement); }
+  });
+  function switchMainTab(btn) {
+    tablist.querySelectorAll(".tab-btn").forEach(b => b.setAttribute("aria-selected", "false"));
+    btn.setAttribute("aria-selected", "true");
+    document.querySelectorAll(".tab-panel").forEach(p => p.classList.remove("active"));
+    document.getElementById(btn.dataset.panel).classList.add("active");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  // 焦点切换 + 子 Tab（笔记/直播）+ 模板折叠：事件委托
+  panels.addEventListener("click", (e) => {
+    const chip = e.target.closest(".focus-chip");
+    if (chip) {
+      const dirIdx = +chip.dataset.dir, focusIdx = +chip.dataset.focus;
+      const bar = chip.closest(".focus-bar");
+      bar.querySelectorAll(".focus-chip").forEach(c => c.setAttribute("aria-selected", "false"));
+      chip.setAttribute("aria-selected", "true");
+      const slot = document.getElementById("focus-slot-" + dirIdx);
+      slot.innerHTML = renderFocusContent(D.directions[dirIdx], focusIdx);
+      return;
+    }
+    const sub = e.target.closest(".subtab-btn");
+    if (sub) {
+      const group = sub.closest(".subtabs");
+      group.querySelectorAll(".subtab-btn").forEach(b => b.setAttribute("aria-selected", "false"));
+      sub.setAttribute("aria-selected", "true");
+      const card = sub.closest(".card");
+      card.querySelectorAll(".subpanel").forEach(p => p.classList.remove("active"));
+      card.querySelector("#" + sub.dataset.sub).classList.add("active");
+      return;
+    }
+    const head = e.target.closest(".tmpl-head");
+    if (head) {
+      const body = document.getElementById(head.dataset.toggle);
+      const open = body.classList.toggle("open");
+      head.setAttribute("aria-expanded", open ? "true" : "false");
+      return;
+    }
+    const ref = e.target.closest(".ref-link");
+    if (ref && ref.hasAttribute("data-ref")) { e.preventDefault(); alert("参考笔记链接为占位，BI 生成正式版时替换为真实笔记 URL。"); }
+  });
+  panels.addEventListener("keydown", (e) => {
+    if ((e.key === "Enter" || e.key === " ") && e.target.classList.contains("tmpl-head")) {
+      e.preventDefault(); e.target.click();
+    }
+  });
+})();
+</script>
+</body>
+</html>
