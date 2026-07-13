@@ -193,6 +193,7 @@
   .fc-stage.rising { color: var(--good); } .fc-stage.peak { color: var(--xhs-red); }
   .fc-stage.base { color: var(--info); } .fc-stage.fading { color: var(--ink-3); }
   .fc-stage.sprint { color: var(--xhs-red); } .fc-stage.warmup { color: var(--warm-orange); } .fc-stage.layout { color: var(--info); }
+  .fc-stage.cooling { color: oklch(60% 0.09 245); } .fc-stage.stable { color: oklch(58% 0.06 200); } .fc-stage.fading { color: oklch(62% 0.03 260); } .fc-stage.base { color: oklch(58% 0.06 200); }
   .focus-chip .fc-heat { position: absolute; top: 8px; right: 10px; font-size: 0.62rem; }
 
   /* 当前焦点标题条 */
@@ -546,7 +547,10 @@
     font-size: 0.64rem; font-weight: 800; color: var(--good);
     background: var(--good-soft); border-radius: 999px; padding: 2px 8px;
     white-space: nowrap; letter-spacing: 0.01em; flex-shrink: 0;
+    text-decoration: none; transition: background .16s, color .16s, transform .16s; cursor: pointer;
   }
+  .tmpl-head .tmpl-ref-chip:hover { background: var(--good); color: #fff; transform: translateY(-1px); }
+  .tmpl-head .tmpl-ref-chip:active { transform: translateY(0); }
   .tmpl-head .tmpl-heat { margin-left: auto; font-size: 0.74rem; color: var(--ink-2); display: flex; align-items: center; gap: 4px; }
   .tmpl-head .caret { transition: transform 0.3s var(--ease); color: var(--ink-3); }
   .tmpl-head[aria-expanded="true"] .caret { transform: rotate(180deg); }
@@ -573,6 +577,25 @@
   .tmpl-field .fv .tagchip { display: inline-block; background: var(--info-soft); color: var(--info); border-radius: 999px; padding: 1px 8px; margin: 2px 3px 2px 0; font-size: 0.9em; font-weight: 600; }
   .ref-link { color: var(--info); font-weight: 600; text-decoration: none; border-bottom: 1px dashed var(--info); }
   .ref-link::before { content: "🔗 "; }
+
+  /* ⭐ 真实爆款速览条（B：焦点第一屏的真实案例入口） */
+  .realcases { margin: 14px 0 4px; }
+  .realcases .rc-head { font-size: 0.86rem; font-weight: 800; color: var(--ink-1); margin-bottom: 9px; display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 8px; }
+  .realcases .rc-head .rc-sub { font-size: 0.72rem; font-weight: 500; color: var(--ink-2); }
+  .realcases .rc-scroll { display: flex; gap: 10px; overflow-x: auto; padding: 2px 2px 8px; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
+  .realcases .rc-scroll::-webkit-scrollbar { height: 4px; } .realcases .rc-scroll::-webkit-scrollbar-thumb { background: var(--line); border-radius: 999px; }
+  .rc-card { scroll-snap-align: start; flex: 0 0 auto; width: 150px; display: flex; flex-direction: column; gap: 5px; background: linear-gradient(160deg, var(--info-soft), var(--bg)); border: 1px solid var(--info-soft); border-radius: 12px; padding: 11px 12px; text-decoration: none; transition: transform .18s cubic-bezier(.16,1,.3,1), box-shadow .18s, border-color .18s; }
+  .rc-card:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,0.08); border-color: var(--info); }
+  .rc-card:active { transform: translateY(0); }
+  .rc-card .rc-top { display: flex; align-items: center; justify-content: space-between; }
+  .rc-card .rc-heat { font-size: 0.72rem; letter-spacing: -2px; }
+  .rc-card .rc-arr { font-size: 0.9rem; color: var(--info); font-weight: 800; }
+  .rc-card .rc-name { font-size: 0.82rem; font-weight: 800; color: var(--ink-1); line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .rc-card .rc-goods { font-size: 0.7rem; color: var(--ink-2); line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
+  .rc-card .rc-cta { margin-top: 2px; font-size: 0.72rem; font-weight: 700; color: var(--info); display: flex; align-items: center; gap: 3px; }
+  .rc-card .rc-cta::before { content: "📎"; font-size: 0.78rem; }
+  @media (max-width: 520px) { .rc-card { width: 138px; } }
+
 
   /* 直播：形式卡 / 货盘 / 话术 / 联动 */
   .live-format { display: grid; gap: 10px; }
@@ -1078,8 +1101,8 @@ DASHBOARD_DATA.directions.push({
       lifecycle: "高峰期 · 全力跟进", lifecycleClass: "peak",
       summary: {
         stage: "高峰期",
-        headline: "近14天摆件方向<span class='hl'>最热的就是可爱萌物</span>（猫/鸭/蒜鸟等，78篇/13.0万赞）——头部笔记「送朋友这只猫被夸了」3.0万赞，核心打法是<span class='hl'>「送礼场景 + 平价高感知」</span>。",
-        action: "最该抓的一件事：<b>用「拆开不想送人了」的送礼场景拍萌物</b>——这是当前摆件笔记最通用的爆款公式，配「才10r却被当贵礼物」的平价反差。",
+        headline: "可爱萌物<span class='hl'>仍是摆件方向绝对头部</span>（猫/鸭/蒜鸟等，78篇/13.0万赞），但本周<span class='hl'>加购从5.8万/天高位小幅回落(-16%)</span>转入常态热销。爆款几乎被<span class='hl'>「送礼反差」一种叙事包揽</span>——「送朋友这只猫被夸了」2.98万赞、「拆开瞬间就不想送闺蜜了」1.24万赞连开数条。",
+        action: "最该抓的一件事：<b>把「拆开就舍不得送」的心动瞬间做成第一帧</b>——本周前六爆款有四条都是这个钩子（送朋友/送闺蜜变体轮番刷屏），再叠「10r却被当贵礼物」的平价惊讶感（「年轻人对10r购买力没概念」1.22万赞就是纯打价格反差）。高峰期跟品别犹豫，但要做出自己的场景变体避免同质。",
         dailyCurve: { vals: [48682, 52204, 58596, 47137, 46421, 48311, 45374, 40467, 40610, 38045, 38440, 41683, 43365, 48657], peak: 58596, trend: "高位回落", range: "06.29~07.12", note: "稳定4-5万/天大盘,7/1冲高5.8万后回落,后7天较前7天-16%小幅降温,仍是常态热销大盘" },
         signals: [
           { label: "真实热度", value: "🔥🔥🔥", trend: "近14天78篇/13.0万赞", dir: "up" },
@@ -1343,7 +1366,7 @@ DASHBOARD_DATA.directions.push({
         ],
         lookback: [
           { name: "10r平价反差款", heat: 3, mom: "-退", note: "7月初真实爆款：仅10+手办被夸高价货2965赞、克雷伯格手办9r+ 2882赞（低价内容钩子曾刷屏,现成交退潮）" },
-          { name: "桌面解压陪伴向", heat: 2, mom: "-退", note: "「才10r却被认为很贵的礼物」1752赞,送同事/摆桌面,现为长尾" },
+          { name: "桌面解压陪伴向", heat: 2, mom: "-退", note: "「才10r却被认为很贵的礼物」1753赞,送同事/摆桌面,现为长尾" },
           { name: "游戏同人IP款", heat: 1, mom: "平", note: "第五人格同人克雷伯格手办,游戏粉丝盘小众长尾" }
         ],
         themes: [
@@ -2199,7 +2222,7 @@ DASHBOARD_DATA.directions.push({
         return `<div class="tmpl-field"><span class="fk">${esc(k)}</span><span class="fv">${val}</span></div>`;
       }).join("");
       const bid = `tmpl-${idx}-${i}`;
-      const refChip = refUrl ? `<span class="tmpl-ref-chip">📎 真实笔记</span>` : "";
+      const refChip = refUrl ? `<a class="tmpl-ref-chip" href="${esc(refUrl)}" target="_blank" rel="noopener" onclick="event.stopPropagation()" title="直接打开这条真实爆款笔记">📎 真实笔记 ↗</a>` : "";
       const refCta = refUrl
         ? `<a class="tmpl-ref-cta" href="${esc(refUrl)}" target="_blank" rel="noopener">📎 看这条真实爆款笔记 <span class="arr">↗</span></a>`
         : "";
@@ -2358,12 +2381,40 @@ DASHBOARD_DATA.directions.push({
       </details>`;
   }
 
+  // ---- ⭐ 真实爆款速览条（B：把深埋的真实案例提到焦点第一屏）----
+  function renderRealCases(d) {
+    if (!d.note || !d.note.templates) return "";
+    const cases = [];
+    d.note.templates.forEach(t => {
+      let url = "", goods = "";
+      t.fields.forEach(([k, v]) => {
+        if (k === "参考笔记" && typeof v === "string" && /^https?:\/\//.test(v)) url = v;
+        if (k === "适用商品" && typeof v === "string") goods = v;
+      });
+      if (url) cases.push({ name: t.name, url, goods, heat: t.heat || 2 });
+    });
+    if (!cases.length) return "";
+    const items = cases.map(c => `
+      <a class="rc-card" href="${esc(c.url)}" target="_blank" rel="noopener">
+        <span class="rc-top"><span class="rc-heat">${heat(c.heat)}</span><span class="rc-arr">↗</span></span>
+        <span class="rc-name">${esc(c.name)}</span>
+        <span class="rc-goods">${esc(c.goods)}</span>
+        <span class="rc-cta">看真实爆款笔记</span>
+      </a>`).join("");
+    return `
+      <div class="realcases">
+        <div class="rc-head">📎 本方向真实爆款案例 <span class="rc-sub">这些打法不是编的——点开看站内真在爆的 ${cases.length} 条</span></div>
+        <div class="rc-scroll">${items}</div>
+      </div>`;
+  }
+
   function renderFocusContent(d, focusIdx) {
     const f = d.focuses[focusIdx];
     const body = f._preview
       ? renderPreview(f, d)
       : (
           renderSummary(f)
+          + renderRealCases(f)
           + renderPicks(f)
           + foldable(renderTrend(f), "2", "趋势脉络", "时间线 · 在涨品类 · 内容钩子")
           + foldable(renderContent(f, d._idx), "4", "怎么发 · 怎么播", "爆款模板 · 直播话术")
